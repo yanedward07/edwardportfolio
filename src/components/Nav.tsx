@@ -26,7 +26,7 @@ export function Nav() {
           onClick={(event) => handleClick(event, 'hero')}
           className="text-sm font-semibold tracking-wide text-white"
         >
-          Your Name
+          Edward Yan
         </a>
         <ul className="flex gap-6 text-sm">
           {NAV_ITEMS.filter((item) => item.id !== 'hero').map((item) => (
