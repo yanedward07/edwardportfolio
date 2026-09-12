@@ -10,7 +10,7 @@ export function Hero() {
         transition={{ duration: 0.5 }}
         className="text-sm uppercase tracking-[0.3em] text-indigo-400"
       >
-        Placeholder Tagline
+        AI Automation & Growth Engineering
       </motion.p>
       <motion.h1
         initial={{ opacity: 0, y: 16 }}
@@ -18,7 +18,7 @@ export function Hero() {
         transition={{ duration: 0.6, delay: 0.1 }}
         className="mt-4 text-5xl font-bold text-white sm:text-6xl"
       >
-        Your Name
+        Edward Yan
       </motion.h1>
       <motion.p
         initial={{ opacity: 0, y: 16 }}
@@ -26,8 +26,9 @@ export function Hero() {
         transition={{ duration: 0.6, delay: 0.2 }}
         className="mt-6 max-w-xl text-lg text-slate-400"
       >
-        Placeholder role and description — e.g. "Software engineer building things for the
-        web." Replace with real bio copy later.
+        I build AI-powered automation systems that turn manual, repetitive business
+        processes into scalable pipelines. My work spans AI-driven sales agents to
+        interactive marketing experiences that drive real customer engagement.
       </motion.p>
       <motion.div
         initial={{ opacity: 0, y: 16 }}
