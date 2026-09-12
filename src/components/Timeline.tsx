@@ -12,7 +12,7 @@ export function Timeline() {
             key={entry.id}
             initial={{ opacity: 0, x: -12 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: '-100px' }}
+            viewport={{ once: false, margin: '-100px' }}
             transition={{ duration: 0.5, delay: index * 0.05 }}
             className="relative"
           >
