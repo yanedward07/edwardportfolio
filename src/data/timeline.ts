@@ -49,4 +49,12 @@ export const timelineEntries: TimelineEntry[] = [
     description:
       "Introduced Instantly.ai at MedTech Wristbands to reduce manual sales workload. Warmed up sales rep inboxes to maintain deliverability and avoid spam filters, then built and ran recapture campaigns targeting active and past customers, rotating rep inboxes and writing personalized reorder and promotional messages, managed through a unified inbox so reps could pick up replies and close directly. Used Instantly's SuperSearch to source new contacts across industries including fairs and festivals, theme parks, sports, food and beverage, K-12 schools, and hospitals, and ran cold outreach campaigns into these segments.",
   },
+  {
+    id: 'timeline-7',
+    date: 'January 2026 – Present',
+    title: 'AI Systems & Growth',
+    subtitle: 'MedTech Wristbands',
+    description:
+      "Built EVE, Jessica, and Luna, a full AI chat and voice system handling customer intake end to end. Built the company's cold outbound infrastructure and GHL workflows with conditional logic, engagement tracking, and automated pipeline movement. Ran growth campaigns including competitive pricing analysis, industry-tailored outreach, and a Soccermania wristband line for the World Cup.",
+  },
 ]
