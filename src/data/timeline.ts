@@ -33,4 +33,20 @@ export const timelineEntries: TimelineEntry[] = [
     description:
       'Paused AR work when 8th Wall discontinued the tool being used, prompting a shift in direction.',
   },
+  {
+    id: 'timeline-5',
+    date: 'September – October 2025',
+    title: 'FlexTask',
+    subtitle: 'Independent Project',
+    description:
+      'Began building FlexTask, a platform for students to take on local freelance work like snow shoveling and pet sitting. First experience with AI-assisted ("vibe") coding. Learned role-based access control, row-level security, Supabase, and website hosting through hands-on trial and error. Paused the project after hitting technical limits.',
+  },
+  {
+    id: 'timeline-6',
+    date: 'November 2025 – January 2026',
+    title: 'Cold Outbound with Instantly.ai',
+    subtitle: 'MedTech Wristbands',
+    description:
+      "Introduced Instantly.ai at MedTech Wristbands to reduce manual sales workload. Warmed up sales rep inboxes to maintain deliverability and avoid spam filters, then built and ran recapture campaigns targeting active and past customers, rotating rep inboxes and writing personalized reorder and promotional messages, managed through a unified inbox so reps could pick up replies and close directly. Used Instantly's SuperSearch to source new contacts across industries including fairs and festivals, theme parks, sports, food and beverage, K-12 schools, and hospitals, and ran cold outreach campaigns into these segments.",
+  },
 ]
