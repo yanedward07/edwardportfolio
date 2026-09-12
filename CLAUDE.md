@@ -33,6 +33,10 @@ Single-page, scroll-based site — no router, no separate pages. `App.tsx` rende
 
 Shared content types are in `src/types/content.ts` (`TimelineEntry`, `Project`, `SkillGroup`).
 
+## Assets
+
+Images live in `src/assets/images/` and are imported directly into the component that uses them (e.g. `import heroPortrait from '../assets/images/hero-portrait.png'`) so Vite bundles and hashes them. Keep new images in that folder with descriptive lowercase-kebab-case filenames (e.g. `hero-portrait.png`, not `IMG_1234.PNG`).
+
 ## Content status
 
 All copy is currently **placeholder text** (lorem-ipsum-style bios, "Placeholder Project One/Two/Three", generic timeline entries, etc.) — nothing here is real yet. Real content will be filled in **section by section**: for sections backed by a `src/data/*.ts` file, replace the placeholder array entries there; for Hero/About/Contact, edit the copy directly in the component.
