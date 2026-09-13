@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import heroPortrait from '../assets/images/hero-portrait.png'
+import heroPortrait from '../assets/images/hero-portrait.jpg'
 import { Section } from './Section'
 import { SiriWave } from './ui/siri-wave'
 
