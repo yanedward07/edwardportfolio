@@ -20,18 +20,21 @@ Single-page, scroll-based site — no router, no separate pages. `App.tsx` rende
 - **Section wrapper**: `src/components/Section.tsx` gives every section a consistent `id`, spacing, and `scroll-mt` offset for the fixed nav.
 - **Project cards expand in place**: `src/components/Projects.tsx` holds `activeId` (accordion state — only one card open at a time). `src/components/ProjectCard.tsx` renders each card and animates its own expand/collapse with Framer Motion (`layout` + `AnimatePresence`) when it becomes the active card. There is no modal and no route change — the card grows inline to reveal detail.
 
-## Sections (in page order) and placeholder content
+## Sections (in page order) and content status
 
-| Section | Component | Placeholder content lives in |
-|---|---|---|
-| Hero | `src/components/Hero.tsx` | inline in the component |
-| About | `src/components/About.tsx` | inline in the component |
-| Timeline | `src/components/Timeline.tsx` | `src/data/timeline.ts` |
-| Projects | `src/components/Projects.tsx` + `ProjectCard.tsx` | `src/data/projects.ts` |
-| Skills | `src/components/Skills.tsx` | `src/data/skills.ts` |
-| Contact | `src/components/Contact.tsx` | inline in the component |
+| Section | Component | Content lives in | Status |
+|---|---|---|---|
+| Hero | `src/components/Hero.tsx` | inline in the component | ✅ Real (name, tagline, bio, portrait) |
+| About | `src/components/About.tsx` | inline in the component | ✅ Real (full bio) |
+| Timeline | `src/components/Timeline.tsx` | `src/data/timeline.ts` | ✅ Real (7 entries, May 2025 – Present) |
+| Projects | `src/components/Projects.tsx` + `ProjectCard.tsx` | `src/data/projects.ts` | ⏳ Placeholder |
+| Beyond the Work | `src/components/BeyondTheWork.tsx` | `src/data/beyondTheWork.ts` (photo captions) + inline paragraph | ⏳ Placeholder |
+| Skills | `src/components/Skills.tsx` | `src/data/skills.ts` | ⏳ Placeholder |
+| Contact | `src/components/Contact.tsx` | inline in the component | ⏳ Placeholder |
 
-Shared content types are in `src/types/content.ts` (`TimelineEntry`, `Project`, `SkillGroup`).
+Beyond the Work covers extracurriculars (varsity badminton, cofounder/co-president of the Western Cue Club) with a paragraph and a placeholder photo grid — real photos will replace the dashed placeholder cards later.
+
+Shared content types are in `src/types/content.ts` (`TimelineEntry`, `Project`, `SkillGroup`, `ExtracurricularPhoto`).
 
 ## Assets
 
@@ -39,4 +42,4 @@ Images live in `src/assets/images/` and are imported directly into the component
 
 ## Content status
 
-All copy is currently **placeholder text** (lorem-ipsum-style bios, "Placeholder Project One/Two/Three", generic timeline entries, etc.) — nothing here is real yet. Real content will be filled in **section by section**: for sections backed by a `src/data/*.ts` file, replace the placeholder array entries there; for Hero/About/Contact, edit the copy directly in the component.
+Real content has been filled in for **Hero, About, and Timeline** (see the table above). **Projects, Skills, Beyond the Work, and Contact still hold placeholder text/images** (e.g. "Placeholder Project One/Two/Three", generic skill lists, dashed photo-placeholder cards, a placeholder email) and are next up. Content continues to be filled in **section by section**: for sections backed by a `src/data/*.ts` file, replace the placeholder array entries there; for Hero/About/Contact, edit the copy directly in the component.

@@ -1,4 +1,5 @@
 import { About } from './components/About'
+import { BeyondTheWork } from './components/BeyondTheWork'
 import { Contact } from './components/Contact'
 import { Hero } from './components/Hero'
 import { Nav } from './components/Nav'
@@ -15,6 +16,7 @@ function App() {
         <About />
         <Timeline />
         <Projects />
+        <BeyondTheWork />
         <Skills />
         <Contact />
       </main>

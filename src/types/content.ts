@@ -19,3 +19,8 @@ export interface SkillGroup {
   category: string
   items: string[]
 }
+
+export interface ExtracurricularPhoto {
+  id: string
+  caption: string
+}
