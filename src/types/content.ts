@@ -23,4 +23,14 @@ export interface SkillGroup {
 export interface ExtracurricularPhoto {
   id: string
   caption: string
+  /** When set, renders the real photo instead of the placeholder card. */
+  image?: string
+}
+
+export interface ExtracurricularEntry {
+  id: string
+  title: string
+  subtitle: string
+  description: string[]
+  photos: ExtracurricularPhoto[]
 }

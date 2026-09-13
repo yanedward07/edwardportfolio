@@ -12,6 +12,12 @@ dist
 dist-ssr
 *.local
 
+# Raw camera files (unusable on the web, too large to track)
+*.CR3
+*.CR2
+*.NEF
+*.ARW
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
