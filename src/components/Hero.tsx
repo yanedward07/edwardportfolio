@@ -1,13 +1,11 @@
 import { motion } from 'framer-motion'
 import heroPortrait from '../assets/images/hero-portrait.jpg'
 import { Section } from './Section'
-import { AuroraBackground } from './ui/aurora-background'
 import { SiriWave } from './ui/siri-wave'
 
 export function Hero() {
   return (
     <div className="relative overflow-hidden">
-      <AuroraBackground aria-hidden="true" className="pointer-events-none absolute inset-0" />
       <div className="pointer-events-none absolute inset-0 opacity-60" aria-hidden="true">
         <div className="mx-auto flex h-full max-w-5xl items-center justify-center px-6 lg:justify-start">
           <SiriWave

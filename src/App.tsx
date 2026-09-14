@@ -6,10 +6,12 @@ import { Nav } from './components/Nav'
 import { Projects } from './components/Projects'
 import { Skills } from './components/Skills'
 import { Timeline } from './components/Timeline'
+import { AuroraBackground } from './components/ui/aurora-background'
 
 function App() {
   return (
-    <div className="min-h-screen bg-slate-950 text-white">
+    <div className="isolate min-h-screen bg-slate-950 text-white">
+      <AuroraBackground aria-hidden="true" className="pointer-events-none fixed inset-0 -z-10" />
       <Nav />
       <main>
         <Hero />
