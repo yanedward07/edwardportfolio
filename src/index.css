@@ -1,5 +1,38 @@
 @import 'tailwindcss';
 
+@theme {
+  --animate-aurora: aurora 60s linear infinite;
+}
+
+@keyframes aurora {
+  from {
+    background-position: 50% 50%, 50% 50%;
+  }
+  to {
+    background-position: 350% 50%, 350% 50%;
+  }
+}
+
+:root {
+  /* Colors used by AuroraBackground (src/components/ui/aurora-background.tsx). */
+  --aurora-stripes: repeating-linear-gradient(
+    100deg,
+    #000 0%,
+    #000 7%,
+    transparent 10%,
+    transparent 12%,
+    #000 16%
+  );
+  --aurora-colors: repeating-linear-gradient(
+    100deg,
+    #3b82f6 10%,
+    #a5b4fc 15%,
+    #93c5fd 20%,
+    #ddd6fe 25%,
+    #60a5fa 30%
+  );
+}
+
 html {
   scroll-behavior: smooth;
 }
