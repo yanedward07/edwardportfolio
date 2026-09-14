@@ -3,6 +3,24 @@ import { extracurriculars } from '../data/beyondTheWork'
 import { Section } from './Section'
 import { CircularGallery, type GalleryItem } from './ui/circular-gallery'
 
+// Kept constant across entries: radius controls how close the front card
+// sits to the viewer (and therefore how large it appears), not just
+// spacing. A shared value keeps every gallery's front photo the same
+// apparent size regardless of how many photos it has — a 4-item ring
+// naturally has more angular room between cards than an 8-item ring, so
+// this radius stays safe from overlap either way.
+const GALLERY_RADIUS = 380
+
+// Fewer photos means each one occupies a wider slice of the ring (e.g. 90°
+// apart for 4 photos vs 45° for 8), leaving visible gaps at this radius.
+// Bigger cards fill that gap without changing the radius (and therefore
+// without changing how large the front photo appears).
+function cardSizeForCount(count: number) {
+  return count <= 5
+    ? { cardWidth: 260, cardHeight: 347 }
+    : { cardWidth: 216, cardHeight: 288 }
+}
+
 export function BeyondTheWork() {
   return (
     <Section id="beyond-the-work">
@@ -41,54 +59,14 @@ export function BeyondTheWork() {
                 ))}
               </motion.div>
 
-              {entry.id === 'cue-club' ? (
-                <div className="relative mt-8 h-80 w-full overflow-hidden sm:h-88">
-                  <CircularGallery items={galleryItems} radius={380} autoRotateSpeed={0.03} />
-                </div>
-              ) : (
-                <div className="mt-8 flex flex-wrap gap-6">
-                  {entry.photos.map((photo, index) => {
-                    const tilt = index % 2 === 0 ? -6 : 6
-                    return (
-                      <motion.div
-                        key={photo.id}
-                        initial={{ opacity: 0, scale: 0.85, rotate: tilt * 1.5 }}
-                        whileInView={{ opacity: 1, scale: 1, rotate: tilt }}
-                        viewport={{ once: true, margin: '-100px' }}
-                        transition={{ duration: 0.5, delay: index * 0.1, ease: 'easeOut' }}
-                        whileHover={{ rotate: 0, scale: 1.06 }}
-                        className="w-40 sm:w-48"
-                      >
-                        {photo.image ? (
-                          <img
-                            src={photo.image}
-                            alt={photo.caption}
-                            className="aspect-4/5 w-full rounded-2xl object-cover shadow-xl shadow-black/30"
-                          />
-                        ) : (
-                          <div className="flex aspect-4/5 flex-col items-center justify-center gap-2 rounded-2xl border border-dashed border-white/15 bg-white/[0.03] text-slate-500 shadow-xl shadow-black/30 transition-colors hover:border-white/30 hover:text-slate-400">
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              stroke="currentColor"
-                              strokeWidth="1.5"
-                              className="h-8 w-8"
-                              aria-hidden="true"
-                            >
-                              <rect x="3" y="3" width="18" height="18" rx="2" />
-                              <circle cx="9" cy="9" r="1.5" />
-                              <path d="m21 15-5-5-11 11" />
-                            </svg>
-                            <span className="text-xs">Photo placeholder</span>
-                          </div>
-                        )}
-                        <p className="mt-2 text-center text-sm text-slate-400">{photo.caption}</p>
-                      </motion.div>
-                    )
-                  })}
-                </div>
-              )}
+              <div className="relative mt-8 h-96 w-full max-w-lg overflow-hidden">
+                <CircularGallery
+                  items={galleryItems}
+                  radius={GALLERY_RADIUS}
+                  autoRotateSpeed={0.03}
+                  {...cardSizeForCount(galleryItems.length)}
+                />
+              </div>
             </div>
           )
         })}

@@ -19,6 +19,7 @@ Single-page, scroll-based site — no router, no separate pages. `App.tsx` rende
 - **Anchor nav**: `src/components/Nav.tsx` links to each section's `id` and smooth-scrolls via `scrollIntoView`. The active link is highlighted using `src/hooks/useActiveSection.ts`, an `IntersectionObserver`-based scroll-spy (no external scroll-spy library).
 - **Section wrapper**: `src/components/Section.tsx` gives every section a consistent `id`, spacing, and `scroll-mt` offset for the fixed nav.
 - **Project cards expand in place**: `src/components/Projects.tsx` holds `activeId` (accordion state — only one card open at a time). `src/components/ProjectCard.tsx` renders each card and animates its own expand/collapse with Framer Motion (`layout` + `AnimatePresence`) when it becomes the active card. There is no modal and no route change — the card grows inline to reveal detail.
+- **Circular photo gallery**: `src/components/ui/circular-gallery.tsx` (`CircularGallery`) renders a set of photos in 3D on a rotating ring (CSS `rotateY`/`translateZ`, no external 3D library). Hovering it and scrolling rotates it locally — a native, non-passive `wheel` listener calls `preventDefault()` so the page itself doesn't scroll; move the cursor off the gallery to keep scrolling the page. It idles with a slow auto-rotation otherwise. `BeyondTheWork.tsx` uses one per extracurricular entry, computing `radius` from the photo count (`radiusForCount`) so spacing stays even whether an entry has 4 photos or 8.
 
 ## Sections (in page order) and content status
 
@@ -28,11 +29,11 @@ Single-page, scroll-based site — no router, no separate pages. `App.tsx` rende
 | About | `src/components/About.tsx` | inline in the component | ✅ Real (full bio) |
 | Timeline | `src/components/Timeline.tsx` | `src/data/timeline.ts` | ✅ Real (7 entries, May 2025 – Present) |
 | Projects | `src/components/Projects.tsx` + `ProjectCard.tsx` | `src/data/projects.ts` | ⏳ Placeholder |
-| Beyond the Work | `src/components/BeyondTheWork.tsx` | `src/data/beyondTheWork.ts` | 🟡 Text real; Cue Club photos real, Badminton photos placeholder |
+| Beyond the Work | `src/components/BeyondTheWork.tsx` | `src/data/beyondTheWork.ts` | ✅ Real (text + all photos) |
 | Skills | `src/components/Skills.tsx` | `src/data/skills.ts` | ⏳ Placeholder |
 | Contact | `src/components/Contact.tsx` | inline in the component | ⏳ Placeholder |
 
-Beyond the Work covers two extracurriculars — Varsity Badminton and Co-Founder/Co-President of the Western Cue Club — each with real write-up copy (`ExtracurricularEntry.description`, an array of paragraphs) and its own photo grid. Each `ExtracurricularPhoto` has an optional `image`: when set, the real photo renders (Western Cue Club's 8 photos, in `src/assets/images/cue-club/`); when absent, a dashed placeholder card renders instead (still used for Varsity Badminton). All photos share the same tilted "scattered photo" animation (Framer Motion, alternating rotation, straightens + scales on hover) regardless of whether they're real or placeholder.
+Beyond the Work covers two extracurriculars — Varsity Badminton (4 photos, `src/assets/images/varsity-badminton/`) and Co-Founder/Co-President of the Western Cue Club (8 photos, `src/assets/images/cue-club/`) — each with real write-up copy (`ExtracurricularEntry.description`, an array of paragraphs) and its own `CircularGallery` (see Architecture above). `ExtracurricularPhoto.image` is typed as optional (a dashed placeholder card used to render in its place before real photos existed), but the current `CircularGallery`-based rendering has no placeholder fallback — every photo needs a real `image` now that both entries are fully populated. Add a fallback again if a future entry ships without photos yet.
 
 Shared content types are in `src/types/content.ts` (`TimelineEntry`, `Project`, `SkillGroup`, `ExtracurricularPhoto`, `ExtracurricularEntry`).
 
@@ -44,4 +45,4 @@ Raw camera files (`.CR3`, `.CR2`, `.NEF`, `.ARW`) are gitignored — they can't 
 
 ## Content status
 
-Real content has been filled in for **Hero, About, Timeline, Beyond the Work's text, and Beyond the Work's Cue Club photos** (see the table above). **Projects, Skills, and Contact still hold placeholder text**, and **Beyond the Work's Varsity Badminton photos are still dashed placeholder cards** (e.g. "Placeholder Project One/Two/Three", generic skill lists, a placeholder email) — these are next up. Content continues to be filled in **section by section**: for sections backed by a `src/data/*.ts` file, replace the placeholder array entries there; for Hero/About/Contact, edit the copy directly in the component.
+Real content has been filled in for **Hero, About, Timeline, and Beyond the Work** in full (see the table above). **Projects, Skills, and Contact still hold placeholder text** (e.g. "Placeholder Project One/Two/Three", generic skill lists, a placeholder email) — these are next up. Content continues to be filled in **section by section**: for sections backed by a `src/data/*.ts` file, replace the placeholder array entries there; for Hero/About/Contact, edit the copy directly in the component.

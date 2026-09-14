@@ -16,14 +16,28 @@ export interface GalleryItem {
 
 interface CircularGalleryProps extends HTMLAttributes<HTMLDivElement> {
   items: GalleryItem[]
-  /** Controls how far the items are from the center. */
+  /** Controls how far the items are from the center (and how large the front item appears). */
   radius?: number
   /** Controls the speed of auto-rotation when not scrolling. */
   autoRotateSpeed?: number
+  /** Card size in px. Larger cards help fill the gaps in a ring with few items. */
+  cardWidth?: number
+  cardHeight?: number
 }
 
 const CircularGallery = React.forwardRef<HTMLDivElement, CircularGalleryProps>(
-  ({ items, className, radius = 600, autoRotateSpeed = 0.02, ...props }, ref) => {
+  (
+    {
+      items,
+      className,
+      radius = 600,
+      autoRotateSpeed = 0.02,
+      cardWidth = 216,
+      cardHeight = 288,
+      ...props
+    },
+    ref,
+  ) => {
     const [rotation, setRotation] = useState(0)
     const [isScrolling, setIsScrolling] = useState(false)
     const scrollTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
@@ -120,13 +134,15 @@ const CircularGallery = React.forwardRef<HTMLDivElement, CircularGalleryProps>(
                 key={item.photo.url}
                 role="group"
                 aria-label={item.common}
-                className="absolute h-72 w-54"
+                className="absolute"
                 style={{
+                  width: cardWidth,
+                  height: cardHeight,
                   transform: `rotateY(${itemAngle}deg) translateZ(${radius}px)`,
                   left: '50%',
                   top: '50%',
-                  marginLeft: '-108px',
-                  marginTop: '-144px',
+                  marginLeft: -cardWidth / 2,
+                  marginTop: -cardHeight / 2,
                   opacity,
                   transition: 'opacity 0.3s linear',
                 }}

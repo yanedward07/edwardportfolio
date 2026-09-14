@@ -6,6 +6,10 @@ import cueClubPoolHallAction from '../assets/images/cue-club/cue-club-pool-hall-
 import cueClubPresentation from '../assets/images/cue-club/cue-club-presentation.jpg'
 import cueClubRulesBriefing from '../assets/images/cue-club/cue-club-rules-briefing.jpg'
 import cueClubTournamentTitle from '../assets/images/cue-club/cue-club-tournament-title.jpg'
+import megaphoneCheer from '../assets/images/varsity-badminton/megaphone-cheer.jpg'
+import ouaChampionshipTeamHuddle from '../assets/images/varsity-badminton/oua-championship-team-huddle.jpg'
+import ouaChampionshipTeamPhoto from '../assets/images/varsity-badminton/oua-championship-team-photo.jpg'
+import sidelineCheeringSection from '../assets/images/varsity-badminton/sideline-cheering-section.jpg'
 import type { ExtracurricularEntry } from '../types/content'
 
 export const extracurriculars: ExtracurricularEntry[] = [
@@ -18,8 +22,10 @@ export const extracurriculars: ExtracurricularEntry[] = [
       'Trained 4 days a week, 3 hours a session, while competing at the OUA and U Sports national level. Helped the team finish 4th at OUAs and 3rd at Nationals. Balancing varsity-level training with a full academic course load meant learning real time management and discipline under pressure, skills that carried directly into how I approach shipping real projects on tight timelines.',
     ],
     photos: [
-      { id: 'badminton-1', caption: 'Varsity Badminton' },
-      { id: 'badminton-2', caption: 'Varsity Badminton' },
+      { id: 'badminton-1', caption: 'OUA Championship', image: ouaChampionshipTeamPhoto },
+      { id: 'badminton-2', caption: 'Team huddle', image: ouaChampionshipTeamHuddle },
+      { id: 'badminton-3', caption: 'Sideline energy', image: sidelineCheeringSection },
+      { id: 'badminton-4', caption: 'Cheering the team on', image: megaphoneCheer },
     ],
   },
   {
