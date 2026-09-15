@@ -13,12 +13,36 @@ export const projects: Project[] = [
     ],
     tags: ['Webflow', '8th Wall', 'JavaScript', 'A-Frame', 'Image Target Tracking'],
     videos: [
-      { id: 'project-1-video-1', caption: 'Prize Drop' },
-      { id: 'project-1-video-2', caption: 'Solar System' },
-      { id: 'project-1-video-3', caption: 'Smash Burger' },
-      { id: 'project-1-video-4', caption: 'Cyber Halo' },
-      { id: 'project-1-video-5', caption: 'Pop Launch' },
-      { id: 'project-1-video-6', caption: 'Rocket Intro' },
+      {
+        id: 'project-1-video-1',
+        caption: 'Prize Drop',
+        vimeo: { videoId: '1114292602', aspectRatio: '100 / 171.67' },
+      },
+      {
+        id: 'project-1-video-2',
+        caption: 'Solar System',
+        vimeo: { videoId: '1115216100', hash: '4d84f6d81e', aspectRatio: '592 / 1014' },
+      },
+      {
+        id: 'project-1-video-3',
+        caption: 'Smash Burger',
+        vimeo: { videoId: '1114951472', aspectRatio: '100 / 169.44' },
+      },
+      {
+        id: 'project-1-video-4',
+        caption: 'Cyber Halo',
+        vimeo: { videoId: '1114256956', hash: '915448f80b', aspectRatio: '100 / 170.21' },
+      },
+      {
+        id: 'project-1-video-5',
+        caption: 'Pop Launch',
+        vimeo: { videoId: '1114951444', aspectRatio: '100 / 169.81' },
+      },
+      {
+        id: 'project-1-video-6',
+        caption: 'Rocket Intro',
+        vimeo: { videoId: '1115213830', aspectRatio: '100 / 170.21' },
+      },
     ],
     links: [
       {

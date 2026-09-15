@@ -9,8 +9,16 @@ export interface TimelineEntry {
 export interface ProjectVideo {
   id: string
   caption: string
-  /** When set, renders the real clip instead of the placeholder slot. */
+  /** Local video file (e.g. mp4) — renders a native <video> tag when set. */
   src?: string
+  /** Vimeo-hosted clip — renders a VimeoEmbed when set. Takes priority over `src`. */
+  vimeo?: {
+    videoId: string
+    /** Privacy hash from the share link. Omit for videos with no hash (fully public). */
+    hash?: string
+    /** CSS aspect-ratio value, e.g. "240 / 412" for a portrait clip. Defaults to 16 / 9. */
+    aspectRatio?: string
+  }
 }
 
 export interface ProjectLink {
