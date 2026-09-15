@@ -28,12 +28,21 @@ export interface ProjectLink {
   url?: string
 }
 
+export interface ProjectImage {
+  id: string
+  src: string
+  alt: string
+  /** Supporting paragraph rendered below the image (e.g. a stats callout). */
+  caption?: string
+}
+
 export interface Project {
   id: string
   title: string
   summary: string
   description: string[]
   tags: string[]
+  images?: ProjectImage[]
   videos?: ProjectVideo[]
   links?: ProjectLink[]
 }

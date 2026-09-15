@@ -1,3 +1,5 @@
+import eveBusiestHoursChart from '../assets/images/eve-metrics/eve-busiest-hours-chart.png'
+import eveMetricsDashboard from '../assets/images/eve-metrics/eve-metrics-dashboard.png'
 import type { Project } from '../types/content'
 
 export const projects: Project[] = [
@@ -80,6 +82,22 @@ export const projects: Project[] = [
       'When a call comes in, EVE classifies it into one of four types: complaint, existing order status, new order, or general inquiry, then a workflow automatically routes the contact into the matching pipeline. Complaints get flagged for an immediate customer service callback or live transfer if requested. Existing order calls are cross-referenced against Zoho to identify the rep responsible for that sales order, so the right person gets the callback with full context. New orders arrive with every field already collected, so a rep only needs one confirmation call before it goes to production, replacing what used to be back and forth emails and calls.',
       'I also built the consent capture system for outbound reorder reminders and promotions. Around 800 contacts have opted in, with their number, consent date, and a recording of their verbal confirmation all stored for compliance.',
       'Day to day, I use Claude connected directly to GoHighLevel through MCP to query pipeline activity conversationally, for example asking how many callers requested order status today, rather than manually digging through dashboards.',
+    ],
+    images: [
+      {
+        id: 'project-2-image-1',
+        src: eveMetricsDashboard,
+        alt: 'EVE agent metrics dashboard showing conversations handled, contacts reached, and top actions',
+        caption:
+          'Over a recent 90-day window, EVE handled 497 conversations across 261 contacts, with 99% of that volume coming through live phone calls, at an average response time of 4.82 seconds. 102 of those calls were routed to the sales manager.',
+      },
+      {
+        id: 'project-2-image-2',
+        src: eveBusiestHoursChart,
+        alt: 'Chart showing EVE conversation volume by hour of day',
+        caption:
+          'EVE handling call volume well outside typical business hours — calls that would otherwise go unanswered are captured instead.',
+      },
     ],
     tags: [
       'GoHighLevel',

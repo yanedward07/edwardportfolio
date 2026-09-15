@@ -44,6 +44,25 @@ export function ProjectCard({ project, isOpen, onToggle }: ProjectCardProps) {
               </p>
             ))}
 
+            {project.images && project.images.length > 0 && (
+              <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+                {project.images.map((image) => (
+                  <div key={image.id}>
+                    <img
+                      src={image.src}
+                      alt={image.alt}
+                      className="w-full rounded-lg border border-white/10 object-cover"
+                    />
+                    {image.caption && (
+                      <p className="mt-2 text-sm leading-relaxed text-slate-400">
+                        {image.caption}
+                      </p>
+                    )}
+                  </div>
+                ))}
+              </div>
+            )}
+
             {project.links && project.links.length > 0 && (
               <div className="mt-4 flex flex-wrap gap-2">
                 {project.links.map((link) =>
