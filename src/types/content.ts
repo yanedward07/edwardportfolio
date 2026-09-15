@@ -6,12 +6,28 @@ export interface TimelineEntry {
   description: string
 }
 
+export interface ProjectVideo {
+  id: string
+  caption: string
+  /** When set, renders the real clip instead of the placeholder slot. */
+  src?: string
+}
+
+export interface ProjectLink {
+  id: string
+  label: string
+  /** When set, renders as a real link instead of a disabled placeholder. */
+  url?: string
+}
+
 export interface Project {
   id: string
   title: string
   summary: string
-  description: string
+  description: string[]
   tags: string[]
+  videos?: ProjectVideo[]
+  links?: ProjectLink[]
 }
 
 export interface SkillGroup {

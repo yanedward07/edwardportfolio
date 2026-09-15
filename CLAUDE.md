@@ -28,14 +28,16 @@ Single-page, scroll-based site — no router, no separate pages. `App.tsx` rende
 | Hero | `src/components/Hero.tsx` | inline in the component | ✅ Real (name, tagline, bio, portrait) |
 | About | `src/components/About.tsx` | inline in the component | ✅ Real (full bio) |
 | Timeline | `src/components/Timeline.tsx` | `src/data/timeline.ts` | ✅ Real (7 entries, May 2025 – Present) |
-| Projects | `src/components/Projects.tsx` + `ProjectCard.tsx` | `src/data/projects.ts` | ⏳ Placeholder |
+| Projects | `src/components/Projects.tsx` + `ProjectCard.tsx` | `src/data/projects.ts` | 🟡 1 of 3 real (project-1); 2 placeholder |
 | Beyond the Work | `src/components/BeyondTheWork.tsx` | `src/data/beyondTheWork.ts` | ✅ Real (text + all photos) |
 | Skills | `src/components/Skills.tsx` | `src/data/skills.ts` | ⏳ Placeholder |
 | Contact | `src/components/Contact.tsx` | inline in the component | ⏳ Placeholder |
 
 Beyond the Work covers two extracurriculars — Varsity Badminton (4 photos, `src/assets/images/varsity-badminton/`) and Co-Founder/Co-President of the Western Cue Club (8 photos, `src/assets/images/cue-club/`) — each with real write-up copy (`ExtracurricularEntry.description`, an array of paragraphs) and its own `CircularGallery` (see Architecture above). `ExtracurricularPhoto.image` is typed as optional (a dashed placeholder card used to render in its place before real photos existed), but the current `CircularGallery`-based rendering has no placeholder fallback — every photo needs a real `image` now that both entries are fully populated. Add a fallback again if a future entry ships without photos yet.
 
-Shared content types are in `src/types/content.ts` (`TimelineEntry`, `Project`, `SkillGroup`, `ExtracurricularPhoto`, `ExtracurricularEntry`).
+`ProjectCard.tsx`'s expanded panel supports the same optional-media pattern for `Project.videos` (`ProjectVideo.src`) and `Project.links` (`ProjectLink.url`): a dashed placeholder (video grid slot / disabled link pill) renders until a real value is set, so reserving a slot now and filling it in later needs no layout changes. `project-1` (Starship Solutions AR Activations) currently reserves 6 video slots and 3 link slots, all still empty.
+
+Shared content types are in `src/types/content.ts` (`TimelineEntry`, `Project`, `ProjectVideo`, `ProjectLink`, `SkillGroup`, `ExtracurricularPhoto`, `ExtracurricularEntry`).
 
 ## Assets
 
@@ -45,4 +47,4 @@ Raw camera files (`.CR3`, `.CR2`, `.NEF`, `.ARW`) are gitignored — they can't 
 
 ## Content status
 
-Real content has been filled in for **Hero, About, Timeline, and Beyond the Work** in full (see the table above). **Projects, Skills, and Contact still hold placeholder text** (e.g. "Placeholder Project One/Two/Three", generic skill lists, a placeholder email) — these are next up. Content continues to be filled in **section by section**: for sections backed by a `src/data/*.ts` file, replace the placeholder array entries there; for Hero/About/Contact, edit the copy directly in the component.
+Real content has been filled in for **Hero, About, Timeline, and Beyond the Work** in full (see the table above). **Projects is partway done** — `project-1` has real text/tags but reserved (empty) video and link slots — and **Skills and Contact still hold placeholder text** (generic skill lists, a placeholder email) — these are next up. Content continues to be filled in **section by section**: for sections backed by a `src/data/*.ts` file, replace the placeholder array entries there; for Hero/About/Contact, edit the copy directly in the component.

@@ -37,7 +37,61 @@ export function ProjectCard({ project, isOpen, onToggle }: ProjectCardProps) {
             transition={{ duration: 0.3, ease: 'easeInOut' }}
             className="overflow-hidden"
           >
-            <p className="mt-4 leading-relaxed text-slate-400">{project.description}</p>
+            {project.description.map((paragraph, index) => (
+              <p key={index} className="mt-4 leading-relaxed text-slate-400">
+                {paragraph}
+              </p>
+            ))}
+
+            {project.links && project.links.length > 0 && (
+              <div className="mt-4 flex flex-wrap gap-2">
+                {project.links.map((link) =>
+                  link.url ? (
+                    <a
+                      key={link.id}
+                      href={link.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-1.5 rounded-full border border-white/15 px-3 py-1.5 text-xs text-slate-300 transition-colors hover:border-white/30 hover:text-white"
+                    >
+                      <LinkIcon />
+                      {link.label}
+                    </a>
+                  ) : (
+                    <span
+                      key={link.id}
+                      className="inline-flex items-center gap-1.5 rounded-full border border-dashed border-white/10 px-3 py-1.5 text-xs text-slate-600"
+                    >
+                      <LinkIcon />
+                      {link.label}
+                    </span>
+                  ),
+                )}
+              </div>
+            )}
+
+            {project.videos && project.videos.length > 0 && (
+              <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3">
+                {project.videos.map((video) => (
+                  <div key={video.id}>
+                    {video.src ? (
+                      <video
+                        src={video.src}
+                        controls
+                        className="aspect-video w-full rounded-lg bg-black object-cover"
+                      />
+                    ) : (
+                      <div className="flex aspect-video flex-col items-center justify-center gap-1.5 rounded-lg border border-dashed border-white/15 bg-white/[0.03] text-slate-500">
+                        <PlayIcon />
+                        <span className="text-[10px]">Video placeholder</span>
+                      </div>
+                    )}
+                    <p className="mt-1.5 text-center text-xs text-slate-500">{video.caption}</p>
+                  </div>
+                ))}
+              </div>
+            )}
+
             <div className="mt-4 flex flex-wrap gap-2">
               {project.tags.map((tag) => (
                 <span
@@ -52,5 +106,40 @@ export function ProjectCard({ project, isOpen, onToggle }: ProjectCardProps) {
         )}
       </AnimatePresence>
     </motion.div>
+  )
+}
+
+function LinkIcon() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      className="h-3 w-3"
+      aria-hidden="true"
+    >
+      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+      <path d="M15 3h6v6" />
+      <path d="M10 14 21 3" />
+    </svg>
+  )
+}
+
+function PlayIcon() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      className="h-6 w-6"
+      aria-hidden="true"
+    >
+      <circle cx="12" cy="12" r="9" />
+      <path d="M10 8.5v7l6-3.5-6-3.5Z" fill="currentColor" stroke="none" />
+    </svg>
   )
 }
