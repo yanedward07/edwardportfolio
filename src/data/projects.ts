@@ -11,7 +11,15 @@ export const projects: Project[] = [
       'Working from a template with little prior coding background, I used AI-assisted development to write and adapt the animation logic, then continuously prompt-engineered and field-tested to refine it. Image target tracking required careful attention to marker color contrast and outdoor lighting. I ran repeated tests at live events to make sure activations held up reliably outdoors, not just in a controlled setting.',
       "This work was recognized directly by 8th Wall, featured in the platform's official blog post on their AI-powered Asset Lab tool.",
     ],
-    tags: ['Webflow', '8th Wall', 'JavaScript', 'A-Frame', 'Image Target Tracking'],
+    tags: [
+      'Webflow',
+      '8th Wall',
+      'HTML',
+      'JavaScript',
+      'A-Frame',
+      'Image Target Tracking',
+      'Prompt Engineering',
+    ],
     videos: [
       {
         id: 'project-1-video-1',
