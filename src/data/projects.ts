@@ -1,5 +1,3 @@
-import eveBusiestHoursChart from '../assets/images/eve-metrics/eve-busiest-hours-chart.png'
-import eveMetricsDashboard from '../assets/images/eve-metrics/eve-metrics-dashboard.png'
 import type { Project } from '../types/content'
 
 export const projects: Project[] = [
@@ -86,17 +84,13 @@ export const projects: Project[] = [
     images: [
       {
         id: 'project-2-image-1',
-        src: eveMetricsDashboard,
-        alt: 'EVE agent metrics dashboard showing conversations handled, contacts reached, and top actions',
-        caption:
-          'Over a recent 90-day window, EVE handled 497 conversations across 261 contacts, with 99% of that volume coming through live phone calls, at an average response time of 4.82 seconds. 102 of those calls were routed to the sales manager.',
+        alt: 'EVE agent metrics dashboard',
+        caption: 'Metrics dashboard',
       },
       {
         id: 'project-2-image-2',
-        src: eveBusiestHoursChart,
         alt: 'Chart showing EVE conversation volume by hour of day',
-        caption:
-          'EVE handling call volume well outside typical business hours — calls that would otherwise go unanswered are captured instead.',
+        caption: 'Busiest hours chart',
       },
     ],
     tags: [
@@ -105,6 +99,13 @@ export const projects: Project[] = [
       'Zoho CRM',
       'Voice AI',
       'MCP / AI Tool Integration',
+    ],
+    links: [
+      {
+        id: 'project-2-link-1',
+        label: 'MeetEve Link',
+        url: 'https://medtechwristbands.com/eve/',
+      },
     ],
   },
   {

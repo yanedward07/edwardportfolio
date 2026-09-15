@@ -30,9 +30,10 @@ export interface ProjectLink {
 
 export interface ProjectImage {
   id: string
-  src: string
+  /** When set, renders the real image instead of the placeholder slot. */
+  src?: string
   alt: string
-  /** Supporting paragraph rendered below the image (e.g. a stats callout). */
+  /** Short label rendered below the image/placeholder (e.g. "Metrics dashboard"). */
   caption?: string
 }
 
