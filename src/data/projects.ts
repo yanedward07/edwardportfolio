@@ -21,9 +21,21 @@ export const projects: Project[] = [
       { id: 'project-1-video-6', caption: 'Rocket Intro' },
     ],
     links: [
-      { id: 'project-1-link-1', label: 'Starship Solutions site' },
-      { id: 'project-1-link-2', label: 'AR gallery' },
-      { id: 'project-1-link-3', label: '8th Wall blog post' },
+      {
+        id: 'project-1-link-1',
+        label: 'Starship Solutions site',
+        url: 'https://www.starshipsolutions.ca/',
+      },
+      {
+        id: 'project-1-link-2',
+        label: 'AR gallery',
+        url: 'https://www.starshipsolutions.ca/gallery',
+      },
+      {
+        id: 'project-1-link-3',
+        label: '8th Wall blog post',
+        url: 'https://info.nianticspatial.com/blog/show-us-your-assets-how-creators-are-building-with-8th-walls-asset-lab',
+      },
     ],
   },
   {
