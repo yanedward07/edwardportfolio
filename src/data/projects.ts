@@ -72,12 +72,22 @@ export const projects: Project[] = [
   },
   {
     id: 'project-2',
-    title: 'Placeholder Project Two',
-    summary: 'One-line placeholder summary of what this project does.',
+    title: 'EVE Voice AI & Call Routing System',
+    summary:
+      'Built a call-intent routing system that automatically classifies every inbound call into one of four pipelines and moves contacts accordingly, no manual sorting required.',
     description: [
-      'Longer placeholder description covering the technical approach, stack, and notable challenges solved. Replace with real project detail later.',
+      "EVE is MedTech Wristbands' AI voice receptionist, handling inbound calls 24/7, including off-hours, weekends, and holidays. She answers FAQs, takes bookings, and captures new orders, and can hand off to a live rep when needed.",
+      'When a call comes in, EVE classifies it into one of four types: complaint, existing order status, new order, or general inquiry, then a workflow automatically routes the contact into the matching pipeline. Complaints get flagged for an immediate customer service callback or live transfer if requested. Existing order calls are cross-referenced against Zoho to identify the rep responsible for that sales order, so the right person gets the callback with full context. New orders arrive with every field already collected, so a rep only needs one confirmation call before it goes to production, replacing what used to be back and forth emails and calls.',
+      'I also built the consent capture system for outbound reorder reminders and promotions. Around 800 contacts have opted in, with their number, consent date, and a recording of their verbal confirmation all stored for compliance.',
+      'Day to day, I use Claude connected directly to GoHighLevel through MCP to query pipeline activity conversationally, for example asking how many callers requested order status today, rather than manually digging through dashboards.',
     ],
-    tags: ['Python', 'FastAPI', 'PostgreSQL'],
+    tags: [
+      'GoHighLevel',
+      'Workflow Automation',
+      'Zoho CRM',
+      'Voice AI',
+      'MCP / AI Tool Integration',
+    ],
   },
   {
     id: 'project-3',
