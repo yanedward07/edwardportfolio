@@ -110,11 +110,25 @@ export const projects: Project[] = [
   },
   {
     id: 'project-3',
-    title: 'Placeholder Project Three',
-    summary: 'One-line placeholder summary of what this project does.',
+    title: 'MedTech Multi-Agent Chatbot System',
+    summary:
+      'Built a three-agent chatbot system where EVE triages every conversation and routes it to the right specialist: Jessica for stock order checkout, or Luna for custom orders.',
     description: [
-      'Longer placeholder description covering the technical approach, stack, and notable challenges solved. Replace with real project detail later.',
+      "This system runs on the website's chat widget, built independently from the voice AI receptionist covered in the previous project, though the two happen to share the same name. Here, EVE plays the same triage role over chat: answering product, pricing, and shipping questions directly from the knowledge base, and identifying whether a customer wants a stock order or a custom order before handing off to the right specialist.",
+      'Jessica handles stock order checkout through a flow-based system: a series of connected nodes, each requiring a specific field (size, color, quantity, contact and shipping details) before advancing, so no order reaches a rep with missing information.',
+      "Luna guides customers through custom orders, either walking them through our Design Your Own form or collecting their details directly if they'd rather have a rep follow up. She also knows the full range of material, sizing, and service-level options so she can answer questions accurately as customers work through the process.",
+      "When a customer gives an answer that doesn't match what a field expects, both Jessica and voice EVE respond the same way: ask again, this time listing the valid options directly, rather than repeating an open-ended question. If the customer still can't give a matching answer, the system doesn't keep looping, it moves on and flags that field for a rep to confirm. This ties into a broader safety net across the whole process: every order, regardless of how cleanly it was captured, gets a final human confirmation before it goes to production, so an unclear capture can never silently become a wrong order.",
     ],
-    tags: ['Vite', 'Tailwind', 'Framer Motion'],
+    videos: [
+      { id: 'project-3-video-1', caption: "Jessica's Flow Walkthrough" },
+      { id: 'project-3-video-2', caption: 'Live Routing Test' },
+    ],
+    tags: [
+      'GoHighLevel',
+      'Conversation AI',
+      'Prompt Engineering',
+      'Multi-Agent Systems',
+      'Workflow Automation',
+    ],
   },
 ]
