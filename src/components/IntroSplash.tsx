@@ -68,7 +68,7 @@ export function IntroSplash() {
           onClick={handleSkip}
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.5, ease: 'easeInOut' }}
+          transition={{ duration: 0.6, ease: 'easeIn' }}
           className="fixed inset-0 z-100 flex cursor-pointer items-center justify-center overflow-hidden bg-slate-950"
         >
           <AuroraBackground aria-hidden="true" className="pointer-events-none absolute inset-0" />
@@ -76,6 +76,7 @@ export function IntroSplash() {
           <motion.h1
             initial={{ opacity: 0, scale: 0.9, filter: 'blur(8px)' }}
             animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
+            exit={{ scale: 12, opacity: 0, transition: { duration: 0.6, ease: 'easeIn' } }}
             transition={{ duration: 0.9, ease: 'easeOut' }}
             className="relative text-4xl font-bold tracking-wide text-white sm:text-6xl"
           >
@@ -85,6 +86,7 @@ export function IntroSplash() {
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
             transition={{ delay: 1, duration: 0.6 }}
             className="absolute bottom-10 text-xs uppercase tracking-[0.3em] text-slate-500"
           >
