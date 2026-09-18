@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import type { Project } from '../types/content'
 import { VimeoEmbed } from './ui/vimeo-embed'
+import { YouTubeEmbed } from './ui/youtube-embed'
 
 interface ProjectCardProps {
   project: Project
@@ -101,7 +102,16 @@ export function ProjectCard({ project, isOpen, onToggle }: ProjectCardProps) {
               <div className="mt-4 grid grid-cols-2 items-start gap-3 sm:grid-cols-3">
                 {project.videos.map((video) => (
                   <div key={video.id}>
-                    {video.vimeo ? (
+                    {video.heading && (
+                      <p className="mb-1.5 text-sm font-semibold text-white">{video.heading}</p>
+                    )}
+                    {video.youtube ? (
+                      <YouTubeEmbed
+                        videoId={video.youtube.videoId}
+                        aspectRatio={video.youtube.aspectRatio}
+                        title={video.caption}
+                      />
+                    ) : video.vimeo ? (
                       <VimeoEmbed
                         videoId={video.vimeo.videoId}
                         hash={video.vimeo.hash}

@@ -8,7 +8,10 @@ export interface TimelineEntry {
 
 export interface ProjectVideo {
   id: string
+  /** Short label shown below the video/placeholder. */
   caption: string
+  /** Optional prominent title shown above the video (for a featured/showcase clip). */
+  heading?: string
   /** Local video file (e.g. mp4) — renders a native <video> tag when set. */
   src?: string
   /** Vimeo-hosted clip — renders a VimeoEmbed when set. Takes priority over `src`. */
@@ -17,6 +20,12 @@ export interface ProjectVideo {
     /** Privacy hash from the share link. Omit for videos with no hash (fully public). */
     hash?: string
     /** CSS aspect-ratio value, e.g. "240 / 412" for a portrait clip. Defaults to 16 / 9. */
+    aspectRatio?: string
+  }
+  /** YouTube-hosted clip — renders a YouTubeEmbed when set. Takes priority over `vimeo`/`src`. */
+  youtube?: {
+    videoId: string
+    /** CSS aspect-ratio value. Defaults to 16 / 9. */
     aspectRatio?: string
   }
 }

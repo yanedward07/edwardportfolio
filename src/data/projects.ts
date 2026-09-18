@@ -121,7 +121,13 @@ export const projects: Project[] = [
     ],
     videos: [
       { id: 'project-3-video-1', caption: "Jessica's Flow Walkthrough" },
-      { id: 'project-3-video-2', caption: 'Live Routing Test' },
+      {
+        id: 'project-3-video-2',
+        heading: 'Multi-Agent Chatbot in Action: EVE, Jessica, and Luna',
+        caption:
+          'A full live conversation showing EVE triaging the request, handing off to Jessica for a stock order, then to Luna for a custom design, end to end, exactly as a real customer would experience it.',
+        youtube: { videoId: 'I19i90SXWs8' },
+      },
     ],
     tags: [
       'GoHighLevel',
