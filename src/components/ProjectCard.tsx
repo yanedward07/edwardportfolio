@@ -39,6 +39,18 @@ export function ProjectCard({ project, isOpen, onToggle }: ProjectCardProps) {
             transition={{ duration: 0.3, ease: 'easeInOut' }}
             className="overflow-hidden"
           >
+            {project.highlight && (
+              <p className="mt-4 rounded-r-lg border-l-2 border-indigo-400 bg-indigo-500/5 py-3 pl-4 leading-relaxed text-slate-300">
+                {project.highlight}
+              </p>
+            )}
+
+            {project.descriptionHeading && (
+              <h4 className="mt-6 text-sm font-semibold uppercase tracking-wide text-indigo-400">
+                {project.descriptionHeading}
+              </h4>
+            )}
+
             {project.description.map((paragraph, index) => (
               <p key={index} className="mt-4 leading-relaxed text-slate-400">
                 {paragraph}
