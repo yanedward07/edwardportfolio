@@ -9,13 +9,15 @@ Personal portfolio/resume site.
 - **TypeScript** 6.0 (`react-ts` template)
 - **Tailwind CSS** 4.3, wired in via the `@tailwindcss/vite` plugin (`vite.config.ts`), imported in `src/index.css` with `@import 'tailwindcss'`
 - **Framer Motion** 13.2 — section reveal animations and the project-card expand/collapse
+- **React Router** (`react-router-dom`) — two routes, added specifically so Beyond the Work could become its own page (see below)
 - Package manager: **npm**
 - Lint: `oxlint` (`npm run lint`)
 
 ## Architecture
 
-Single-page, scroll-based site — no router, no separate pages. `App.tsx` renders one fixed `Nav` plus all sections stacked in a `<main>`.
+Mostly a single-page, scroll-based site, plus one separate route. `App.tsx` wraps everything in a `BrowserRouter` with two routes: `/` → `src/pages/HomePage.tsx` (Hero, About, Timeline, Projects, Skills, Contact — all still one scrolling page with anchor nav) and `/beyond-the-work` → `src/pages/BeyondTheWorkPage.tsx` (just the `BeyondTheWork` section, standalone). Both pages render their own `AuroraBackground` + `Nav`; only `HomePage` renders `IntroSplash` (the intro is a "welcome to the portfolio" moment, skipped if someone lands directly on Beyond the Work via a shared link). Since this introduces client-side routing, a static host needs to serve `index.html` for any path so direct loads/refreshes of `/beyond-the-work` don't 404 — handled via `public/_redirects` (Netlify) and `vercel.json` (Vercel), covering both candidate deploy targets.
 
+- **Nav across two routes**: `src/components/Nav.tsx` uses `useLocation`/`useNavigate` from `react-router-dom`. On `/`, section links (About, Timeline, Projects, Skills, Contact) behave as before — `preventDefault` + `scrollIntoView`, active state from the scroll-spy hook. "Beyond the Work" is always a real `<Link to="/beyond-the-work">`, highlighted via route match (`location.pathname !== '/'`) rather than scroll-spy. When NOT on `/` and a section link is clicked, it navigates to `/#<id>` instead of scrolling directly; `HomePage` has a `useEffect` keyed on `location.hash` that scrolls to that element once the home route mounts — this is what makes "click About from the Beyond the Work page" land back on the right section. The scroll-spy hook (`useActiveSection`) is only given real section ids on `/`; elsewhere it's passed `[]` so nothing on that page gets (incorrectly) highlighted as an active section.
 - **Intro splash**: `src/components/IntroSplash.tsx`, rendered first in `App.tsx` (above `AuroraBackground`/`Nav`, `z-100` fixed overlay). Shows "Edward Yan" animating in over `AuroraBackground` once per browser session (gated by `sessionStorage['intro-shown']` — the `useState` initializer reads it, so a repeat view in the same session renders nothing at all, no flash). Auto-dismisses after 2.5s, or immediately on click anywhere on the overlay; either way, the name zooms toward the viewer on exit (`exit={{ scale: 12, opacity: 0 }}` on the text, with its own faster/snappier transition than the entrance) rather than a plain fade. A short two-tone chime is synthesized at runtime via the Web Audio API (`playRevealChime`, no audio asset/licensing needed) — attempted on mount (silently no-ops if the browser blocks autoplaying audio) and always played on the click-to-skip handler, since a click is a genuine user gesture that satisfies browser autoplay policy. Sets `document.body.style.overflow = 'hidden'` while visible, restored on dismiss.
 - **Anchor nav**: `src/components/Nav.tsx` links to each section's `id` and smooth-scrolls via `scrollIntoView`. The active link is highlighted using `src/hooks/useActiveSection.ts`, an `IntersectionObserver`-based scroll-spy (no external scroll-spy library).
 - **Section wrapper**: `src/components/Section.tsx` gives every section a consistent `id`, spacing, and `scroll-mt` offset for the fixed nav.
@@ -24,17 +26,17 @@ Single-page, scroll-based site — no router, no separate pages. `App.tsx` rende
 - **Vimeo embeds**: `src/components/ui/vimeo-embed.tsx` (`VimeoEmbed`) wraps the Vimeo Player SDK. The `player.js` script loads once for the whole page via a module-scoped promise (`loadVimeoPlayerScript`), shared across every instance regardless of how many mount. The container uses the real CSS `aspect-ratio` property (a prop, not a padding-percentage hack) — pass the exact ratio from the video's own embed code (e.g. Vimeo's `padding-top: 170.21%` → `aspectRatio: '100 / 170.21'`) since these AR screen-recordings are portrait, not 16:9. `hash` is optional — some clips have no privacy hash (fully public) and omit `h` from the Player options entirely when absent. Status only flips to `'ready'` after the player's own `ready()` promise resolves, not just after the constructor call — the constructor resolves synchronously even when the video fails to load, so gating on `ready()` is what actually surfaces a "Video unavailable" state instead of a silent blank box.
 - **YouTube embeds**: `src/components/ui/youtube-embed.tsx` (`YouTubeEmbed`) — just a plain iframe (`youtube.com/embed/{id}`) in the same `aspect-ratio` container as `VimeoEmbed`, no SDK script, no privacy hash, no ready-state gating needed. Added as a second hosting option after a Vimeo account access issue; in `ProjectCard.tsx`'s video rendering, `video.youtube` is checked before `video.vimeo`/`video.src`. `ProjectVideo.heading` is an optional prominent title rendered above a video (for a featured/showcase clip) — distinct from `caption`, which always renders as a short line below.
 
-## Sections (in page order) and content status
+## Sections/pages and content status
 
-| Section | Component | Content lives in | Status |
+| Section/page | Component | Content lives in | Status |
 |---|---|---|---|
-| Hero | `src/components/Hero.tsx` | inline in the component | ✅ Real (name, tagline, bio, portrait) |
-| About | `src/components/About.tsx` | inline in the component | ✅ Real (full bio) |
-| Timeline | `src/components/Timeline.tsx` | `src/data/timeline.ts` | ✅ Real (7 entries, May 2025 – Present) |
-| Projects | `src/components/Projects.tsx` + `ProjectCard.tsx` | `src/data/projects.ts` | 🟡 All 3 real; project-2's image slots and project-3's video slots still pending |
-| Beyond the Work | `src/components/BeyondTheWork.tsx` | `src/data/beyondTheWork.ts` | ✅ Real (text + all photos) |
-| Skills | `src/components/Skills.tsx` | `src/data/skills.ts` | ⏳ Placeholder |
-| Contact | `src/components/Contact.tsx` | inline in the component | ⏳ Placeholder |
+| Hero (`/`) | `src/components/Hero.tsx` | inline in the component | ✅ Real (name, tagline, bio, portrait) |
+| About (`/`) | `src/components/About.tsx` | inline in the component | ✅ Real (full bio) |
+| Timeline (`/`) | `src/components/Timeline.tsx` | `src/data/timeline.ts` | ✅ Real (7 entries, May 2025 – Present) |
+| Projects (`/`) | `src/components/Projects.tsx` + `ProjectCard.tsx` | `src/data/projects.ts` | 🟡 All 3 real; project-2's image slots and project-3's video slots still pending |
+| Beyond the Work (`/beyond-the-work`) | `src/components/BeyondTheWork.tsx`, via `src/pages/BeyondTheWorkPage.tsx` | `src/data/beyondTheWork.ts` | ✅ Real (text + all photos) |
+| Skills (`/`) | `src/components/Skills.tsx` | `src/data/skills.ts` | ⏳ Placeholder |
+| Contact (`/`) | `src/components/Contact.tsx` | inline in the component | ⏳ Placeholder |
 
 Beyond the Work covers two extracurriculars — Varsity Badminton (4 photos, `src/assets/images/varsity-badminton/`) and Co-Founder/Co-President of the Western Cue Club (8 photos, `src/assets/images/cue-club/`) — each with real write-up copy (`ExtracurricularEntry.description`, an array of paragraphs) and its own `CircularGallery` (see Architecture above). `ExtracurricularPhoto.image` is typed as optional (a dashed placeholder card used to render in its place before real photos existed), but the current `CircularGallery`-based rendering has no placeholder fallback — every photo needs a real `image` now that both entries are fully populated. Add a fallback again if a future entry ships without photos yet.
 
