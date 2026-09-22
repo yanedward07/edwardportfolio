@@ -140,4 +140,29 @@ export const projects: Project[] = [
       'Workflow Automation',
     ],
   },
+  {
+    id: 'project-4',
+    title: 'Cold Outbound & Growth Infrastructure',
+    summary:
+      "Built MedTech's entire outbound infrastructure from the ground up, deliverability, database sourcing, and automated nudge workflows, to turn cold and recaptured contacts into tracked, closable pipeline.",
+    highlight:
+      'Before this, reorder outreach and new customer acquisition meant sales reps manually emailing contacts one by one, with no reliable way to track who actually engaged. Now, every in-house campaign runs through tracked links and automated workflows that surface real buying intent, so reps spend their time closing warm leads instead of guessing who to follow up with. The same infrastructure also let MedTech move fast on time-sensitive opportunities, launching a fully targeted campaign into a new market within a live demand window, rather than missing it while building a list from scratch.',
+    descriptionHeading: 'How it works',
+    description: [
+      'I built HTML campaigns in GoHighLevel targeting three in-house segments, active, recapture, and retention databases, with promotions, discount offers, and new product announcements. Every CTA carries a trigger link, so when someone engages, they automatically enter a workflow that nudges them with follow-up emails and moves them through the pipeline without a rep needing to track it manually.',
+      'On the acquisition side, I ran go-to-market campaigns tied to real-world demand. When FIFA created a wave of interest in customizable team gear, I procured a database of sports bars and related venues and launched a Soccermania wristband campaign into it. I did the same for a glow-in-the-dark UV wristband line, sourcing a database of nightclubs, bars, and night-event venues and building use-case-specific campaigns for that industry.',
+      "I also built and ran a separate B2G motion under our Rizbands brand, targeting Canadian municipalities, clerks' offices, recreation departments, and facilities teams, with positioning built around their actual objections: locked-in multi-year pricing to remove budget-cycle risk, explicit acceptance of purchase orders and Net-30 terms, and self-service portal codes per municipality so reordering doesn't require re-quoting.",
+      "For deliverability, I set up a secondary sending domain, purchased and warmed up a rotation of inboxes through Instantly to build sender reputation, and used Instantly's inbox rotation to distribute recapture emails across our sales reps' addresses, automating what used to be manual, one-by-one reorder outreach. Cold and GTM campaigns deliberately skip link tracking and rich formatting, since both are common spam-filter triggers, engagement tracking lives on the warmer, in-house side instead, where deliverability risk is lower. For new external contacts sourced through Instantly's SuperSearch and purchased databases, I ran every list through ZeroBounce before sending to keep bounce rates low and protect domain reputation.",
+      'This infrastructure has sent thousands of outreach emails across recapture, cold, and GTM campaigns, generating hundreds of engaged replies and over 400 tracked opportunities.',
+      'I track engagement and campaign performance throughout, adjusting targeting and messaging based on what the metrics actually show.',
+    ],
+    tags: [
+      'Instantly',
+      'Deliverability',
+      'GoHighLevel',
+      'Workflow Automation',
+      'Cold Outbound',
+      'GTM Strategy',
+    ],
+  },
 ]
