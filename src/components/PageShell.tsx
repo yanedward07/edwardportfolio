@@ -25,8 +25,12 @@ export function PageShell({ children, wide = false }: PageShellProps) {
   }, [pathname])
 
   return (
-    <div className="isolate min-h-screen bg-oat-50 text-espresso-900 dark:bg-espresso-950 dark:text-oat-100">
-      <AuroraBackground aria-hidden="true" className="pointer-events-none fixed inset-0 -z-10" />
+    <div className="isolate min-h-screen bg-paper text-espresso-900 dark:bg-espresso-950 dark:text-oat-100">
+      {/* Dark mode only: the light theme reads cleaner as flat warm paper. */}
+      <AuroraBackground
+        aria-hidden="true"
+        className="pointer-events-none fixed inset-0 -z-10 hidden dark:block"
+      />
       <Nav />
       <motion.main
         key={pathname}

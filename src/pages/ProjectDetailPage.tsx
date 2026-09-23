@@ -95,7 +95,7 @@ export function ProjectDetailPage() {
                   className="w-full rounded-xl border border-espresso-900/10 object-cover dark:border-oat-100/10"
                 />
               ) : (
-                <div className="flex aspect-video flex-col items-center justify-center gap-1.5 rounded-xl border border-dashed border-espresso-900/15 bg-oat-100/50 text-bark-500 dark:border-oat-100/15 dark:bg-espresso-900/40">
+                <div className="flex aspect-video flex-col items-center justify-center gap-1.5 rounded-xl border border-dashed border-espresso-900/15 bg-paper-raised text-bark-500 dark:border-oat-100/15 dark:bg-espresso-900/40">
                   <ImageIcon />
                   <span className="text-xs">Image placeholder</span>
                 </div>
@@ -144,7 +144,7 @@ export function ProjectDetailPage() {
                   className="aspect-video w-full rounded-xl bg-black object-cover"
                 />
               ) : (
-                <div className="flex aspect-video flex-col items-center justify-center gap-1.5 rounded-xl border border-dashed border-espresso-900/15 bg-oat-100/50 text-bark-500 dark:border-oat-100/15 dark:bg-espresso-900/40">
+                <div className="flex aspect-video flex-col items-center justify-center gap-1.5 rounded-xl border border-dashed border-espresso-900/15 bg-paper-raised text-bark-500 dark:border-oat-100/15 dark:bg-espresso-900/40">
                   <PlayIcon />
                   <span className="text-[10px]">Video placeholder</span>
                 </div>

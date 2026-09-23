@@ -17,7 +17,7 @@ const NAV_ITEMS = [
  */
 export function Nav() {
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-espresso-900/8 bg-oat-50/85 backdrop-blur-md dark:border-oat-100/10 dark:bg-espresso-950/85">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-espresso-900/8 bg-paper/85 backdrop-blur-md dark:border-oat-100/10 dark:bg-espresso-950/85">
       <div className="mx-auto max-w-6xl px-6 py-4 lg:py-5">
         {/* On narrow screens the brand and the toggle get their own row so the
             link row underneath can stay centred (and scroll) without them

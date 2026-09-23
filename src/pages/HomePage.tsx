@@ -18,7 +18,7 @@ const PASTIMES: Pastime[] = [
   {
     id: 'racket',
     sport: 'Racket sports',
-    line: "Two years on Western's varsity badminton team — 4th at OUAs, 3rd at Nationals. I'll still take a game off anyone who asks.",
+    line: "Played badminton since I was young. Two years on Western's varsity team, competing nationally against other universities. I'll still take a game off anyone who asks.",
     accent: 'honey',
   },
   {
@@ -68,16 +68,22 @@ export function HomePage() {
             >
               Edward Yan
             </motion.h1>
-            <motion.p
+            <motion.div
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.16 }}
-              className="mt-7 max-w-[58ch] text-lg leading-relaxed text-bark-600 dark:text-bark-400"
+              className="mt-7 max-w-[58ch] space-y-4 text-lg leading-relaxed text-bark-600 dark:text-bark-400"
             >
-              I build AI-powered automation systems that turn manual, repetitive business
-              processes into scalable pipelines. My work spans AI-driven sales agents to
-              interactive marketing experiences that drive real customer engagement.
-            </motion.p>
+              <p>
+                I love building things that make people's lives easier. Chat and voice
+                agents, workflow automation, outbound systems, anything that takes the
+                repetitive half of a job off someone's plate.
+              </p>
+              <p>
+                If a person is doing it fifty times a week, I'd rather build something
+                that does it for them.
+              </p>
+            </motion.div>
             <motion.div
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
@@ -100,13 +106,13 @@ export function HomePage() {
           </div>
         </section>
 
-        <section className="mt-24 rounded-3xl border border-espresso-900/10 bg-oat-100/60 p-8 sm:p-10 dark:border-oat-100/10 dark:bg-espresso-900/50">
+        <section className="mt-24 rounded-3xl border border-espresso-900/10 bg-paper-raised p-8 sm:p-10 dark:border-oat-100/10 dark:bg-espresso-900/50">
           <h2 className="font-display text-2xl font-semibold text-espresso-900 dark:text-oat-50">
             Looking for my next team
           </h2>
           <p className="mt-4 max-w-[64ch] leading-relaxed text-bark-600 dark:text-bark-400">
             I'm open to startup roles and full-time work where I can keep shipping AI
-            products end to end — the kind of place where the person who designs the
+            products end to end. The kind of place where the person who designs the
             system is also the one who gets it live.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">

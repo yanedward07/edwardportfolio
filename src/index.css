@@ -7,6 +7,12 @@
   /* Warm "clubhouse" palette: oat paper and espresso ink, with honey as the
      primary accent and billiards-felt green as the secondary. Named after the
      material they came from so usage stays intentional. */
+  /* Page surfaces in light mode: a soft warm grey rather than white, so the
+     bright theme isn't glaring. `oat-*` stays bright because it doubles as
+     text colour in dark mode. */
+  --color-paper: #ebe7e1;
+  --color-paper-raised: #f4f1ec;
+
   --color-oat-50: #fdf8f0;
   --color-oat-100: #f8efe0;
   --color-oat-200: #efe0c9;
@@ -88,7 +94,7 @@ html {
 }
 
 body {
-  background-color: #fdf8f0;
+  background-color: #ebe7e1;
   font-family: var(--font-sans);
 }
 
