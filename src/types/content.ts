@@ -1,3 +1,5 @@
+import type { AccentKey } from '../lib/accents'
+
 export interface TimelineEntry {
   id: string
   date: string
@@ -50,6 +52,8 @@ export interface Project {
   id: string
   title: string
   summary: string
+  /** Card colour on the projects grid (see src/lib/accents.ts). Defaults to honey. */
+  accent?: AccentKey
   /** Optional short callout rendered distinctly above the description (e.g. a "why it matters" blurb). */
   highlight?: string
   /** Optional subheading rendered above the description paragraphs (e.g. "How it works"). */

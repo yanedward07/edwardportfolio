@@ -4,6 +4,37 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
+  /* Warm "clubhouse" palette: oat paper and espresso ink, with honey as the
+     primary accent and billiards-felt green as the secondary. Named after the
+     material they came from so usage stays intentional. */
+  --color-oat-50: #fdf8f0;
+  --color-oat-100: #f8efe0;
+  --color-oat-200: #efe0c9;
+  --color-oat-300: #e2cdae;
+
+  --color-espresso-950: #160f0a;
+  --color-espresso-900: #1f1610;
+  --color-espresso-800: #2b1f17;
+  --color-espresso-700: #3a2a1f;
+
+  --color-bark-600: #6d5744;
+  --color-bark-500: #8a7460;
+  --color-bark-400: #c3b0a0;
+
+  --color-honey-600: #a96a12;
+  --color-honey-500: #c9821b;
+  --color-honey-400: #e2a23f;
+
+  --color-felt-700: #1f5136;
+  --color-felt-500: #2f7a50;
+  --color-felt-400: #4c9b6c;
+
+  --color-wine-600: #8d3a3a;
+  --color-wine-400: #c06767;
+
+  --font-sans: 'Work Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Fraunces', ui-serif, Georgia, serif;
+
   --animate-aurora: aurora 60s linear infinite;
 }
 
@@ -20,7 +51,9 @@
   /* Colors used by AuroraBackground (src/components/ui/aurora-background.tsx).
      The stripe gradient is white in light mode + `invert`ed by the component
      (rather than black) so the same markup works on a light background; dark
-     mode swaps in black stripes with no invert. */
+     mode swaps in black stripes with no invert. The color stops are the warm
+     palette above (honey → amber → felt), so the wash reads as late-afternoon
+     light rather than the original blue. */
   --aurora-stripes: repeating-linear-gradient(
     100deg,
     #fff 0%,
@@ -31,11 +64,11 @@
   );
   --aurora-colors: repeating-linear-gradient(
     100deg,
-    #3b82f6 10%,
-    #a5b4fc 15%,
-    #93c5fd 20%,
-    #ddd6fe 25%,
-    #60a5fa 30%
+    #e2a23f 10%,
+    #f0cf9a 15%,
+    #d98f4a 20%,
+    #f6e2bf 25%,
+    #7fae8e 30%
   );
 }
 
@@ -55,9 +88,22 @@ html {
 }
 
 body {
-  background-color: #fff;
+  background-color: #fdf8f0;
+  font-family: var(--font-sans);
 }
 
 .dark body {
-  background-color: #020617;
+  background-color: #160f0a;
+}
+
+/* Fraunces is a variable font with a `SOFT` and `WONK` axis; a little of both
+   keeps display type warm rather than editorial-cold. */
+.font-display {
+  font-variation-settings: 'SOFT' 30, 'WONK' 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }

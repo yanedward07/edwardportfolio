@@ -3,6 +3,7 @@ import type { Project } from '../types/content'
 export const projects: Project[] = [
   {
     id: 'project-1',
+    accent: 'honey',
     title: 'Starship Solutions AR Activations',
     summary:
       "Built Starship Solutions' website and led creation of 6 live AR wristband experiences, recognized by 8th Wall's official blog.",
@@ -72,6 +73,7 @@ export const projects: Project[] = [
   },
   {
     id: 'project-2',
+    accent: 'felt',
     title: 'EVE Voice AI & Call Routing System',
     summary:
       'Built a call-intent routing system that automatically classifies every inbound call into one of four pipelines and moves contacts accordingly, no manual sorting required.',
@@ -110,6 +112,7 @@ export const projects: Project[] = [
   },
   {
     id: 'project-3',
+    accent: 'wine',
     title: 'MedTech Multi-Agent Chatbot System',
     summary:
       'Built a three-agent chatbot system where EVE triages every conversation and routes it to the right specialist: Jessica for stock order checkout, or Luna for custom orders.',
@@ -142,6 +145,7 @@ export const projects: Project[] = [
   },
   {
     id: 'project-4',
+    accent: 'bark',
     title: 'Cold Outbound & Growth Infrastructure',
     summary:
       "Built MedTech's entire outbound infrastructure from the ground up, deliverability, database sourcing, and automated nudge workflows, to turn cold and recaptured contacts into tracked, closable pipeline.",

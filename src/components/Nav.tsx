@@ -1,103 +1,89 @@
-import type { MouseEvent } from 'react'
-import { Link, useLocation, useNavigate } from 'react-router-dom'
-import { useActiveSection } from '../hooks/useActiveSection'
+import { NavLink, Link } from 'react-router-dom'
 import { useTheme } from '../hooks/useTheme'
 
-const SECTION_ITEMS = [
-  { id: 'hero', label: 'Home' },
-  { id: 'about', label: 'About' },
-  { id: 'timeline', label: 'Timeline' },
-  { id: 'projects', label: 'Projects' },
+const NAV_ITEMS = [
+  { to: '/', label: 'Home', end: true },
+  { to: '/about', label: 'About' },
+  { to: '/timeline', label: 'Timeline' },
+  { to: '/projects', label: 'Projects' },
+  { to: '/beyond-the-work', label: 'Beyond the Work' },
+  { to: '/contact', label: 'Contact' },
 ]
 
-const AFTER_PROJECTS_ITEMS = [
-  { id: 'skills', label: 'Skills' },
-  { id: 'contact', label: 'Contact' },
-]
-
-const BEYOND_THE_WORK_PATH = '/beyond-the-work'
-
+/**
+ * Top bar with the links centred in the viewport. The brand and the theme
+ * toggle are absolutely positioned at the edges so the link row stays
+ * optically centred regardless of how wide either of them gets.
+ */
 export function Nav() {
-  const location = useLocation()
-  const navigate = useNavigate()
+  return (
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-espresso-900/8 bg-oat-50/85 backdrop-blur-md dark:border-oat-100/10 dark:bg-espresso-950/85">
+      <div className="mx-auto max-w-6xl px-6 py-4 lg:py-5">
+        {/* On narrow screens the brand and the toggle get their own row so the
+            link row underneath can stay centred (and scroll) without them
+            overlapping it. */}
+        <div className="flex items-center justify-between lg:hidden">
+          <Link
+            to="/"
+            className="font-display text-base font-semibold tracking-tight text-espresso-900 dark:text-oat-100"
+          >
+            Edward Yan
+          </Link>
+          <ThemeToggle />
+        </div>
+
+        <div className="relative mt-3 flex items-center justify-center lg:mt-0">
+          <Link
+            to="/"
+            className="absolute left-0 hidden font-display text-base font-semibold tracking-tight text-espresso-900 lg:block dark:text-oat-100"
+          >
+            Edward Yan
+          </Link>
+
+          <nav aria-label="Primary" className="max-w-full overflow-x-auto">
+            <ul className="flex items-center gap-1 sm:gap-2 md:gap-4">
+              {NAV_ITEMS.map((item) => (
+                <li key={item.to}>
+                  <NavLink
+                    to={item.to}
+                    end={item.end}
+                    className={({ isActive }) =>
+                      [
+                        'block whitespace-nowrap rounded-full px-3 py-2 text-sm transition-colors sm:px-4',
+                        isActive
+                          ? 'bg-honey-500/15 text-espresso-900 dark:bg-honey-400/15 dark:text-oat-50'
+                          : 'text-bark-600 hover:text-espresso-900 dark:text-bark-400 dark:hover:text-oat-100',
+                      ].join(' ')
+                    }
+                  >
+                    {item.label}
+                  </NavLink>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <div className="absolute right-0 hidden lg:block">
+            <ThemeToggle />
+          </div>
+        </div>
+      </div>
+    </header>
+  )
+}
+
+function ThemeToggle() {
   const { theme, toggleTheme } = useTheme()
-  const isHome = location.pathname === '/'
-
-  const allSectionIds = [...SECTION_ITEMS, ...AFTER_PROJECTS_ITEMS].map((item) => item.id)
-  const activeId = useActiveSection(isHome ? allSectionIds : [])
-
-  const handleAnchorClick = (event: MouseEvent<HTMLAnchorElement>, id: string) => {
-    event.preventDefault()
-    if (isHome) {
-      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
-    } else {
-      navigate(`/#${id}`)
-    }
-  }
-
-  const anchorLinkClass = (id: string) =>
-    isHome && activeId === id
-      ? 'text-slate-900 dark:text-white'
-      : 'text-slate-500 transition-colors hover:text-slate-900 dark:text-slate-400 dark:hover:text-white'
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-black/10 bg-white/80 backdrop-blur dark:border-white/10 dark:bg-slate-950/80">
-      <nav className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
-        <a
-          href="#hero"
-          onClick={(event) => handleAnchorClick(event, 'hero')}
-          className="text-sm font-semibold tracking-wide text-slate-900 dark:text-white"
-        >
-          Edward Yan
-        </a>
-        <div className="flex items-center gap-6">
-          <ul className="flex gap-6 text-sm">
-            {SECTION_ITEMS.filter((item) => item.id !== 'hero').map((item) => (
-              <li key={item.id}>
-                <a
-                  href={`#${item.id}`}
-                  onClick={(event) => handleAnchorClick(event, item.id)}
-                  className={anchorLinkClass(item.id)}
-                >
-                  {item.label}
-                </a>
-              </li>
-            ))}
-            <li>
-              <Link
-                to={BEYOND_THE_WORK_PATH}
-                className={
-                  !isHome
-                    ? 'text-slate-900 dark:text-white'
-                    : 'text-slate-500 transition-colors hover:text-slate-900 dark:text-slate-400 dark:hover:text-white'
-                }
-              >
-                Beyond the Work
-              </Link>
-            </li>
-            {AFTER_PROJECTS_ITEMS.map((item) => (
-              <li key={item.id}>
-                <a
-                  href={`#${item.id}`}
-                  onClick={(event) => handleAnchorClick(event, item.id)}
-                  className={anchorLinkClass(item.id)}
-                >
-                  {item.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-          <button
-            type="button"
-            onClick={toggleTheme}
-            aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
-            className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-black/10 text-slate-500 transition-colors hover:text-slate-900 dark:border-white/10 dark:text-slate-400 dark:hover:text-white"
-          >
-            {theme === 'dark' ? <SunIcon /> : <MoonIcon />}
-          </button>
-        </div>
-      </nav>
-    </header>
+    <button
+      type="button"
+      onClick={toggleTheme}
+      aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+      className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-espresso-900/15 text-bark-600 transition-colors hover:border-honey-500 hover:text-espresso-900 dark:border-oat-100/15 dark:text-bark-400 dark:hover:border-honey-400 dark:hover:text-oat-100"
+    >
+      {theme === 'dark' ? <SunIcon /> : <MoonIcon />}
+    </button>
   )
 }
 

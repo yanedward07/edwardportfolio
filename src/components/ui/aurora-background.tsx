@@ -27,7 +27,7 @@ export function AuroraBackground({
     <div className={cn('relative overflow-hidden', className)} {...props}>
       <div
         className={cn(
-          `pointer-events-none absolute -inset-2.5 [background-image:var(--aurora-stripes),var(--aurora-colors)] bg-position-[50%_50%,50%_50%] bg-size-[300%,200%] opacity-50 blur-[10px] invert will-change-transform after:absolute after:inset-0 after:animate-aurora after:bg-fixed after:[background-image:var(--aurora-stripes),var(--aurora-colors)] after:bg-size-[200%,100%] after:mix-blend-difference after:content-[''] dark:opacity-100 dark:invert-0`,
+          `pointer-events-none absolute -inset-2.5 [background-image:var(--aurora-stripes),var(--aurora-colors)] bg-position-[50%_50%,50%_50%] bg-size-[300%,200%] opacity-50 blur-[10px] invert will-change-transform after:absolute after:inset-0 after:animate-aurora after:bg-fixed after:[background-image:var(--aurora-stripes),var(--aurora-colors)] after:bg-size-[200%,100%] after:mix-blend-difference after:content-[''] dark:opacity-55 dark:invert-0`,
           showRadialGradient &&
             "[mask-image:radial-gradient(ellipse_at_100%_0%,black_10%,transparent_70%)]",
         )}

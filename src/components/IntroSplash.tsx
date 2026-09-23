@@ -69,7 +69,7 @@ export function IntroSplash() {
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.6, ease: 'easeIn' }}
-          className="fixed inset-0 z-100 flex cursor-pointer items-center justify-center overflow-hidden bg-slate-950"
+          className="fixed inset-0 z-100 flex cursor-pointer items-center justify-center overflow-hidden bg-espresso-950"
         >
           <AuroraBackground aria-hidden="true" className="pointer-events-none absolute inset-0" />
 
@@ -78,7 +78,7 @@ export function IntroSplash() {
             animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
             exit={{ scale: 12, opacity: 0, transition: { duration: 0.6, ease: 'easeIn' } }}
             transition={{ duration: 0.9, ease: 'easeOut' }}
-            className="relative text-4xl font-bold tracking-wide text-white sm:text-6xl"
+            className="relative font-display text-5xl font-semibold tracking-tight text-oat-50 sm:text-7xl"
           >
             Edward Yan
           </motion.h1>
@@ -88,7 +88,7 @@ export function IntroSplash() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ delay: 1, duration: 0.6 }}
-            className="absolute bottom-10 text-xs uppercase tracking-[0.3em] text-slate-500"
+            className="absolute bottom-10 text-xs text-bark-500"
           >
             Tap to skip
           </motion.p>
