@@ -85,7 +85,11 @@ export function ProjectDetailPage() {
       </div>
 
       {project.images && project.images.length > 0 && (
-        <div className="mt-12 grid gap-5 sm:grid-cols-2">
+        // A lone screenshot reads better full width than stranded in one
+        // half of a two-column grid.
+        <div
+          className={`mt-12 grid gap-5 ${project.images.length > 1 ? 'sm:grid-cols-2' : ''}`}
+        >
           {project.images.map((image) => (
             <figure key={image.id}>
               {image.src ? (
@@ -100,9 +104,18 @@ export function ProjectDetailPage() {
                   <span className="text-xs">Image placeholder</span>
                 </div>
               )}
-              {image.caption && (
-                <figcaption className="mt-2 text-center text-xs text-bark-500">
-                  {image.caption}
+              {(image.caption || image.summary) && (
+                <figcaption className="mt-3">
+                  {image.caption && (
+                    <span className="block text-sm font-medium text-espresso-900 dark:text-oat-100">
+                      {image.caption}
+                    </span>
+                  )}
+                  {image.summary && (
+                    <span className="mt-2 block max-w-[68ch] leading-relaxed text-bark-600 dark:text-bark-400">
+                      {image.summary}
+                    </span>
+                  )}
                 </figcaption>
               )}
             </figure>

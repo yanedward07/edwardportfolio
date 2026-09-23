@@ -46,6 +46,8 @@ export interface ProjectImage {
   alt: string
   /** Short label rendered below the image/placeholder (e.g. "Metrics dashboard"). */
   caption?: string
+  /** Optional paragraph under the caption, for reading the numbers in a screenshot. */
+  summary?: string
 }
 
 export interface Project {

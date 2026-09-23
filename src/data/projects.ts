@@ -1,3 +1,4 @@
+import eveVoiceAiMetrics from '../assets/images/eve-metrics/eve-voice-ai-metrics.png'
 import type { Project } from '../types/content'
 
 export const projects: Project[] = [
@@ -86,13 +87,11 @@ export const projects: Project[] = [
     images: [
       {
         id: 'project-2-image-1',
-        alt: 'EVE agent metrics dashboard',
-        caption: 'Metrics dashboard',
-      },
-      {
-        id: 'project-2-image-2',
-        alt: 'Chart showing EVE conversation volume by hour of day',
-        caption: 'Busiest hours chart',
+        src: eveVoiceAiMetrics,
+        alt: "EVE voice AI dashboard showing 531 conversations handled, 270 contacts reached, a 4.78 second average response time, and a bar chart of conversation volume by hour of day",
+        caption: 'EVE voice AI, last 3 months',
+        summary:
+          'Over three months EVE handled 531 conversations and reached 270 contacts, answering in 4.78 seconds on average. The volume chart is the part that matters: the heaviest hours run from late afternoon into the evening and trail past midnight, well outside the hours anyone is staffing the phones. Those are the calls that used to hit voicemail.',
       },
     ],
     tags: [
@@ -126,7 +125,13 @@ export const projects: Project[] = [
       'Every order, regardless of how cleanly it was captured, still gets a final human confirmation before production, so an unclear capture can never silently become a wrong order.',
     ],
     videos: [
-      { id: 'project-3-video-1', caption: "Jessica's Flow Walkthrough" },
+      {
+        id: 'project-3-video-1',
+        heading: "Jessica's Flow Walkthrough",
+        caption:
+          'A look inside the stock-order flow node by node: the objective set at each step, the CRM field the answer writes to, and the rules that stop it skipping a field or looping on a bad answer.',
+        youtube: { videoId: 'KhZ2H9LrHWE' },
+      },
       {
         id: 'project-3-video-2',
         heading: 'Multi-Agent Chatbot in Action: EVE, Jessica, and Luna',
