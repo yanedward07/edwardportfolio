@@ -5,8 +5,8 @@ import { Section } from './Section'
 export function Timeline() {
   return (
     <Section id="timeline">
-      <h2 className="text-3xl font-bold text-white">Timeline</h2>
-      <ol className="mt-10 space-y-10 border-l border-white/10 pl-8">
+      <h2 className="text-3xl font-bold text-slate-900 dark:text-white">Timeline</h2>
+      <ol className="mt-10 space-y-10 border-l border-black/10 pl-8 dark:border-white/10">
         {timelineEntries.map((entry, index) => (
           <motion.li
             key={entry.id}
@@ -17,10 +17,14 @@ export function Timeline() {
             className="relative"
           >
             <span className="absolute -left-[calc(2rem+5px)] top-1.5 h-2.5 w-2.5 rounded-full bg-indigo-400" />
-            <p className="text-sm uppercase tracking-wide text-indigo-400">{entry.date}</p>
-            <h3 className="mt-1 text-xl font-semibold text-white">{entry.title}</h3>
+            <p className="text-sm uppercase tracking-wide text-indigo-600 dark:text-indigo-400">
+              {entry.date}
+            </p>
+            <h3 className="mt-1 text-xl font-semibold text-slate-900 dark:text-white">
+              {entry.title}
+            </h3>
             <p className="text-sm text-slate-500">{entry.subtitle}</p>
-            <p className="mt-2 text-slate-400">{entry.description}</p>
+            <p className="mt-2 text-slate-600 dark:text-slate-400">{entry.description}</p>
           </motion.li>
         ))}
       </ol>

@@ -11,7 +11,10 @@ interface ProjectCardProps {
 
 export function ProjectCard({ project, isOpen, onToggle }: ProjectCardProps) {
   return (
-    <motion.div layout className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
+    <motion.div
+      layout
+      className="rounded-2xl border border-black/10 bg-black/[0.02] p-6 dark:border-white/10 dark:bg-white/[0.03]"
+    >
       <button
         type="button"
         onClick={onToggle}
@@ -19,12 +22,12 @@ export function ProjectCard({ project, isOpen, onToggle }: ProjectCardProps) {
         aria-expanded={isOpen}
       >
         <div>
-          <h3 className="text-lg font-semibold text-white">{project.title}</h3>
-          <p className="mt-1 text-sm text-slate-400">{project.summary}</p>
+          <h3 className="text-lg font-semibold text-slate-900 dark:text-white">{project.title}</h3>
+          <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">{project.summary}</p>
         </div>
         <motion.span
           animate={{ rotate: isOpen ? 45 : 0 }}
-          className="shrink-0 text-2xl text-slate-400"
+          className="shrink-0 text-2xl text-slate-600 dark:text-slate-400"
         >
           +
         </motion.span>
@@ -40,19 +43,19 @@ export function ProjectCard({ project, isOpen, onToggle }: ProjectCardProps) {
             className="overflow-hidden"
           >
             {project.highlight && (
-              <p className="mt-4 rounded-r-lg border-l-2 border-indigo-400 bg-indigo-500/5 py-3 pl-4 leading-relaxed text-slate-300">
+              <p className="mt-4 rounded-r-lg border-l-2 border-indigo-500 bg-indigo-500/5 py-3 pl-4 leading-relaxed text-slate-700 dark:border-indigo-400 dark:text-slate-300">
                 {project.highlight}
               </p>
             )}
 
             {project.descriptionHeading && (
-              <h4 className="mt-6 text-sm font-semibold uppercase tracking-wide text-indigo-400">
+              <h4 className="mt-6 text-sm font-semibold uppercase tracking-wide text-indigo-600 dark:text-indigo-400">
                 {project.descriptionHeading}
               </h4>
             )}
 
             {project.description.map((paragraph, index) => (
-              <p key={index} className="mt-4 leading-relaxed text-slate-400">
+              <p key={index} className="mt-4 leading-relaxed text-slate-600 dark:text-slate-400">
                 {paragraph}
               </p>
             ))}
@@ -65,10 +68,10 @@ export function ProjectCard({ project, isOpen, onToggle }: ProjectCardProps) {
                       <img
                         src={image.src}
                         alt={image.alt}
-                        className="w-full rounded-lg border border-white/10 object-cover"
+                        className="w-full rounded-lg border border-black/10 object-cover dark:border-white/10"
                       />
                     ) : (
-                      <div className="flex aspect-video flex-col items-center justify-center gap-1.5 rounded-lg border border-dashed border-white/15 bg-white/[0.03] text-slate-500">
+                      <div className="flex aspect-video flex-col items-center justify-center gap-1.5 rounded-lg border border-dashed border-black/15 bg-black/[0.02] text-slate-500 dark:border-white/15 dark:bg-white/[0.03]">
                         <ImageIcon />
                         <span className="text-xs">Image placeholder</span>
                       </div>
@@ -92,7 +95,7 @@ export function ProjectCard({ project, isOpen, onToggle }: ProjectCardProps) {
                       href={link.url}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center gap-1.5 rounded-full border border-white/15 px-3 py-1.5 text-xs text-slate-300 transition-colors hover:border-white/30 hover:text-white"
+                      className="inline-flex items-center gap-1.5 rounded-full border border-black/15 px-3 py-1.5 text-xs text-slate-700 transition-colors hover:border-black/30 hover:text-slate-900 dark:border-white/15 dark:text-slate-300 dark:hover:border-white/30 dark:hover:text-white"
                     >
                       <LinkIcon />
                       {link.label}
@@ -100,7 +103,7 @@ export function ProjectCard({ project, isOpen, onToggle }: ProjectCardProps) {
                   ) : (
                     <span
                       key={link.id}
-                      className="inline-flex items-center gap-1.5 rounded-full border border-dashed border-white/10 px-3 py-1.5 text-xs text-slate-600"
+                      className="inline-flex items-center gap-1.5 rounded-full border border-dashed border-black/10 px-3 py-1.5 text-xs text-slate-400 dark:border-white/10 dark:text-slate-600"
                     >
                       <LinkIcon />
                       {link.label}
@@ -115,7 +118,9 @@ export function ProjectCard({ project, isOpen, onToggle }: ProjectCardProps) {
                 {project.videos.map((video) => (
                   <div key={video.id}>
                     {video.heading && (
-                      <p className="mb-1.5 text-sm font-semibold text-white">{video.heading}</p>
+                      <p className="mb-1.5 text-sm font-semibold text-slate-900 dark:text-white">
+                        {video.heading}
+                      </p>
                     )}
                     {video.youtube ? (
                       <YouTubeEmbed
@@ -137,7 +142,7 @@ export function ProjectCard({ project, isOpen, onToggle }: ProjectCardProps) {
                         className="aspect-video w-full rounded-lg bg-black object-cover"
                       />
                     ) : (
-                      <div className="flex aspect-video flex-col items-center justify-center gap-1.5 rounded-lg border border-dashed border-white/15 bg-white/[0.03] text-slate-500">
+                      <div className="flex aspect-video flex-col items-center justify-center gap-1.5 rounded-lg border border-dashed border-black/15 bg-black/[0.02] text-slate-500 dark:border-white/15 dark:bg-white/[0.03]">
                         <PlayIcon />
                         <span className="text-[10px]">Video placeholder</span>
                       </div>
@@ -152,7 +157,7 @@ export function ProjectCard({ project, isOpen, onToggle }: ProjectCardProps) {
               {project.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="rounded-full bg-indigo-500/10 px-3 py-1 text-xs text-indigo-300"
+                  className="rounded-full bg-indigo-500/10 px-3 py-1 text-xs text-indigo-700 dark:text-indigo-300"
                 >
                   {tag}
                 </span>

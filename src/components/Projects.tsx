@@ -8,7 +8,7 @@ export function Projects() {
 
   return (
     <Section id="projects">
-      <h2 className="text-3xl font-bold text-white">Projects</h2>
+      <h2 className="text-3xl font-bold text-slate-900 dark:text-white">Projects</h2>
       <div className="mt-10 space-y-4">
         {projects.map((project) => (
           <ProjectCard

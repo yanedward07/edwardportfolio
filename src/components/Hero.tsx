@@ -20,7 +20,10 @@ export function Hero() {
           />
         </div>
       </div>
-      <div className="pointer-events-none absolute inset-0 bg-slate-950/30" aria-hidden="true" />
+      <div
+        className="pointer-events-none absolute inset-0 bg-white/50 dark:bg-slate-950/30"
+        aria-hidden="true"
+      />
       <Section
         id="hero"
         className="relative z-10 flex min-h-screen flex-col justify-center pt-20"
@@ -32,14 +35,14 @@ export function Hero() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="aspect-4/5 w-56 shrink-0 rounded-3xl object-cover object-[50%_80%] shadow-2xl ring-1 ring-white/10 sm:w-64 lg:w-72"
+            className="aspect-4/5 w-56 shrink-0 rounded-3xl object-cover object-[50%_80%] shadow-2xl ring-1 ring-black/10 sm:w-64 lg:w-72 dark:ring-white/10"
           />
           <div className="max-w-xl text-center lg:text-left">
             <motion.p
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="text-sm uppercase tracking-[0.3em] text-indigo-400"
+              className="text-sm uppercase tracking-[0.3em] text-indigo-600 dark:text-indigo-400"
             >
               AI Automation & Growth Engineering
             </motion.p>
@@ -47,7 +50,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="mt-4 text-5xl font-bold text-white sm:text-6xl"
+              className="mt-4 text-5xl font-bold text-slate-900 sm:text-6xl dark:text-white"
             >
               Edward Yan
             </motion.h1>
@@ -55,7 +58,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="mt-6 text-lg text-slate-400"
+              className="mt-6 text-lg text-slate-600 dark:text-slate-400"
             >
               I build AI-powered automation systems that turn manual, repetitive business
               processes into scalable pipelines. My work spans AI-driven sales agents to
@@ -75,7 +78,7 @@ export function Hero() {
               </a>
               <a
                 href="#contact"
-                className="rounded-full border border-white/20 px-6 py-3 text-sm font-medium text-white transition-colors hover:border-white/40"
+                className="rounded-full border border-black/20 px-6 py-3 text-sm font-medium text-slate-900 transition-colors hover:border-black/40 dark:border-white/20 dark:text-white dark:hover:border-white/40"
               >
                 Contact
               </a>

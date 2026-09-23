@@ -5,6 +5,18 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Your Name — Portfolio</title>
+    <script>
+      // Applied before paint so the correct theme renders immediately —
+      // otherwise React mounting after first paint would cause a flash of
+      // the wrong theme.
+      ;(function () {
+        try {
+          var stored = localStorage.getItem('theme')
+          var isDark = stored ? stored === 'dark' : !window.matchMedia('(prefers-color-scheme: light)').matches
+          document.documentElement.classList.toggle('dark', isDark)
+        } catch (e) {}
+      })()
+    </script>
   </head>
   <body>
     <div id="root"></div>

@@ -1,5 +1,8 @@
 @import 'tailwindcss';
 
+/* Class-based dark mode (toggled via `.dark` on <html>, see useTheme.ts) instead of Tailwind v4's default prefers-color-scheme media query. */
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --animate-aurora: aurora 60s linear infinite;
 }
@@ -14,14 +17,17 @@
 }
 
 :root {
-  /* Colors used by AuroraBackground (src/components/ui/aurora-background.tsx). */
+  /* Colors used by AuroraBackground (src/components/ui/aurora-background.tsx).
+     The stripe gradient is white in light mode + `invert`ed by the component
+     (rather than black) so the same markup works on a light background; dark
+     mode swaps in black stripes with no invert. */
   --aurora-stripes: repeating-linear-gradient(
     100deg,
-    #000 0%,
-    #000 7%,
+    #fff 0%,
+    #fff 7%,
     transparent 10%,
     transparent 12%,
-    #000 16%
+    #fff 16%
   );
   --aurora-colors: repeating-linear-gradient(
     100deg,
@@ -33,10 +39,25 @@
   );
 }
 
+.dark {
+  --aurora-stripes: repeating-linear-gradient(
+    100deg,
+    #000 0%,
+    #000 7%,
+    transparent 10%,
+    transparent 12%,
+    #000 16%
+  );
+}
+
 html {
   scroll-behavior: smooth;
 }
 
 body {
+  background-color: #fff;
+}
+
+.dark body {
   background-color: #020617;
 }

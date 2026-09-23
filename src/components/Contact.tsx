@@ -3,8 +3,8 @@ import { Section } from './Section'
 export function Contact() {
   return (
     <Section id="contact" className="pb-32">
-      <h2 className="text-3xl font-bold text-white">Contact</h2>
-      <p className="mt-4 max-w-xl text-slate-400">
+      <h2 className="text-3xl font-bold text-slate-900 dark:text-white">Contact</h2>
+      <p className="mt-4 max-w-xl text-slate-600 dark:text-slate-400">
         Placeholder contact copy — swap in real details later.
       </p>
       <a

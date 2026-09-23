@@ -23,7 +23,7 @@ export function HomePage() {
   }, [location.hash])
 
   return (
-    <div className="isolate min-h-screen bg-slate-950 text-white">
+    <div className="isolate min-h-screen bg-white text-slate-900 dark:bg-slate-950 dark:text-white">
       <IntroSplash />
       <AuroraBackground aria-hidden="true" className="pointer-events-none fixed inset-0 -z-10" />
       <Nav />

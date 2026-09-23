@@ -29,7 +29,7 @@ export function BeyondTheWork() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-100px' }}
         transition={{ duration: 0.5 }}
-        className="text-3xl font-bold text-white"
+        className="text-3xl font-bold text-slate-900 dark:text-white"
       >
         Beyond the Work
       </motion.h2>
@@ -50,10 +50,12 @@ export function BeyondTheWork() {
                 transition={{ duration: 0.5 }}
                 className="max-w-2xl"
               >
-                <h3 className="text-xl font-semibold text-white">{entry.title}</h3>
+                <h3 className="text-xl font-semibold text-slate-900 dark:text-white">
+                  {entry.title}
+                </h3>
                 <p className="mt-1 text-sm text-slate-500">{entry.subtitle}</p>
                 {entry.description.map((paragraph, index) => (
-                  <p key={index} className="mt-4 leading-relaxed text-slate-400">
+                  <p key={index} className="mt-4 leading-relaxed text-slate-600 dark:text-slate-400">
                     {paragraph}
                   </p>
                 ))}
