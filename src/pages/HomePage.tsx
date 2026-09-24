@@ -48,7 +48,7 @@ export function HomePage() {
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.15 }}
-            className="aspect-4/5 w-48 shrink-0 self-center rounded-[2rem] object-cover object-[50%_80%] shadow-xl shadow-espresso-900/10 ring-1 ring-espresso-900/10 sm:w-60 lg:w-72 dark:ring-oat-100/10"
+            className="aspect-square w-56 shrink-0 self-center rounded-full object-cover shadow-xl shadow-espresso-900/10 ring-1 ring-espresso-900/10 sm:w-72 lg:w-80 dark:ring-oat-100/10"
           />
 
           <div className="max-w-xl">
