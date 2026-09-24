@@ -8,9 +8,9 @@ function getInitialTheme(): Theme {
   if (typeof window === 'undefined') return 'dark'
   const stored = localStorage.getItem(STORAGE_KEY)
   if (stored === 'light' || stored === 'dark') return stored
-  // No explicit preference stored — the brand default is dark, so only
-  // fall back to light when the OS explicitly prefers it.
-  return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'
+  // The site is designed dark first, so a first-time visitor always gets dark
+  // even if their OS prefers light. Their own toggle choice still wins after.
+  return 'dark'
 }
 
 export function useTheme() {

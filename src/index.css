@@ -108,6 +108,14 @@ body {
   font-variation-settings: 'SOFT' 30, 'WONK' 1;
 }
 
+/* The name on the landing page, set as the one piece of real display type on
+   the site: `opsz` pinned to the top of Fraunces' range for the high-contrast
+   cut (hairline thins against heavy stems) that the font only reveals at
+   poster sizes, and less `SOFT` so the terminals stay crisp at that scale. */
+.hero-name {
+  font-variation-settings: 'opsz' 144, 'SOFT' 0, 'WONK' 1;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

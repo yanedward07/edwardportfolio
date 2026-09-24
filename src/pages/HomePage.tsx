@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import heroPortrait from '../assets/images/hero-portrait.jpg'
 import { IntroSplash } from '../components/IntroSplash'
@@ -35,6 +35,54 @@ const PASTIMES: Pastime[] = [
   },
 ]
 
+/**
+ * The landing-page name. Set on two lines at poster scale so it reads as a
+ * mark rather than a heading, and revealed letter by letter on load: the one
+ * piece of unprompted motion on the page. The letters are aria-hidden and the
+ * heading carries the real name, so a screen reader hears it once, normally.
+ */
+function HeroName() {
+  const reduceMotion = useReducedMotion()
+
+  return (
+    <motion.h1
+      aria-label="Edward Yan"
+      initial="hidden"
+      animate="visible"
+      variants={{
+        visible: {
+          transition: { staggerChildren: reduceMotion ? 0 : 0.045, delayChildren: 0.1 },
+        },
+      }}
+      className="hero-name mt-4 font-display text-7xl font-bold leading-[0.82] tracking-[-0.035em] text-espresso-900 sm:text-8xl dark:text-oat-50"
+    >
+      {['Edward', 'Yan'].map((word) => (
+        <span key={word} aria-hidden="true" className="block">
+          {[...word].map((letter, index) => (
+            <motion.span
+              key={`${word}-${index}`}
+              className="inline-block"
+              variants={{
+                hidden: reduceMotion
+                  ? { opacity: 0 }
+                  : { opacity: 0, y: '0.3em', rotate: -6 },
+                visible: {
+                  opacity: 1,
+                  y: 0,
+                  rotate: 0,
+                  transition: { duration: 0.55, ease: [0.16, 1, 0.3, 1] },
+                },
+              }}
+            >
+              {letter}
+            </motion.span>
+          ))}
+        </span>
+      ))}
+    </motion.h1>
+  )
+}
+
 export function HomePage() {
   return (
     <PageShell wide>
@@ -60,14 +108,7 @@ export function HomePage() {
             >
               AI Automation &amp; Growth Engineering
             </motion.p>
-            <motion.h1
-              initial={{ opacity: 0, y: 14 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.08 }}
-              className="mt-3 font-display text-6xl font-semibold leading-[0.95] tracking-tight text-espresso-900 sm:text-7xl dark:text-oat-50"
-            >
-              Edward Yan
-            </motion.h1>
+            <HeroName />
             <motion.div
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
