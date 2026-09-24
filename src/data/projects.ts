@@ -174,4 +174,37 @@ export const projects: Project[] = [
       'GTM Strategy',
     ],
   },
+  {
+    id: 'project-5',
+    accent: 'felt',
+    title: 'FlexTask Student Task Marketplace',
+    summary:
+      'Built a two-sided marketplace for campus task work end to end, with identity verification and Postgres row-level security enforcing every access rule, then shelved it when the cold start turned out to be harder than the engineering.',
+    highlight:
+      "This is the one that never launched, and it is the one I learned the most from. The product worked: someone could post a task, a verified student could apply, and the two of them could message each other through it. What I could not solve was the cold start. A two-sided marketplace is only useful once both sides are already on it, and on a single campus I had no way to bring posters in for an empty pool of taskers, or taskers in for an empty pool of tasks. I had treated distribution as something to work out once the product was finished, and that was the wrong order. It is the reason I now start with how something reaches people rather than only whether I can build it.",
+    descriptionHeading: 'What I built',
+    description: [
+      'FlexTask let someone post a local task, snow shoveling, pet sitting, help moving furniture, with a budget, a time window, a location and a headcount, and let verified students apply to it. The poster reviewed each applicant against their profile, completed-task count and past reviews, accepted one, and the two carried on in an in-app conversation with realtime messaging and unread counts. Behind that sat an admin console: platform metrics, a queue for reviewing identity documents, account suspension, task moderation and an append-only audit log of every admin action.',
+      "There is no backend server in it. The browser talks to Postgres directly through Supabase, which makes row-level security the only thing standing between a user and someone else's data, so that is where every access rule lives, across 33 migrations and 83 policies. Participation is gated on verification: a new account can look around but cannot act until an admin approves a government ID or a student ID, which promotes it to poster, tasker or both. Uploading a document and approving one are deliberately separate permissions, so a user can submit their own pending application but only an admin can move it to approved.",
+      'The hardest part was recursion inside those policies. A policy on the user profiles table that queried the same table to check whether the caller was an admin would re-enter the table it was guarding and stall the planner. The fix was moving those checks into SECURITY DEFINER functions that run outside row-level security, so a policy never re-enters the table it protects. Several migrations in the repo are named after that fight.',
+      'I came back to the codebase a year later and brought it up to standard: fixed the bugs that had accumulated, got the type checker and linter passing clean, and wrote the missing migration for a table that had only ever existed in the Supabase dashboard, so the project can now rebuild its own database from the repo.',
+    ],
+    tags: [
+      'React',
+      'TypeScript',
+      'Supabase',
+      'PostgreSQL',
+      'Row-Level Security',
+      'Authentication',
+      'Tailwind CSS',
+      'Vite',
+    ],
+    links: [
+      {
+        id: 'project-5-link-1',
+        label: 'GitHub repo',
+        url: 'https://github.com/yanedward07/flextask',
+      },
+    ],
+  },
 ]

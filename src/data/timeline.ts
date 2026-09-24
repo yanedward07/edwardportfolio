@@ -39,7 +39,7 @@ export const timelineEntries: TimelineEntry[] = [
     title: 'FlexTask',
     subtitle: 'Independent Project',
     description:
-      'Began building FlexTask, a platform for students to take on local freelance work like snow shoveling and pet sitting. First experience with AI-assisted ("vibe") coding. Learned role-based access control, row-level security, Supabase, and website hosting through hands-on trial and error. Paused the project after hitting technical limits.',
+      'Began building FlexTask, a platform for students to take on local freelance work like snow shoveling and pet sitting. First experience with AI-assisted ("vibe") coding. Learned role-based access control, row-level security, Supabase, and website hosting through hands-on trial and error. Never launched: I could not solve the cold start of getting both sides of a marketplace onto one campus at the same time.',
   },
   {
     id: 'timeline-6',
