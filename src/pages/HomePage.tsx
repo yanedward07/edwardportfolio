@@ -141,7 +141,7 @@ export function HomePage() {
                 to="/contact"
                 className="rounded-full border border-espresso-900/20 px-6 py-3 text-sm font-medium text-espresso-900 transition-colors hover:border-honey-500 dark:border-oat-100/20 dark:text-oat-100 dark:hover:border-honey-400"
               >
-                Get in touch
+                Let's chat
               </Link>
             </motion.div>
           </div>

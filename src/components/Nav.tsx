@@ -7,7 +7,7 @@ const NAV_ITEMS = [
   { to: '/timeline', label: 'Timeline' },
   { to: '/projects', label: 'Projects' },
   { to: '/beyond-the-work', label: 'Beyond the Work' },
-  { to: '/contact', label: 'Contact' },
+  { to: '/contact', label: "Let's Chat" },
 ]
 
 /**

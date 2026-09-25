@@ -38,7 +38,7 @@ Personal portfolio/resume site.
 | `/timeline` | `src/pages/TimelinePage.tsx` | `src/data/timeline.ts` | ✅ Real (7 entries, May 2025 – Present) |
 | `/projects` + `/projects/:projectId` | `src/pages/ProjectsPage.tsx`, `src/pages/ProjectDetailPage.tsx` | `src/data/projects.ts` | ✅ All 4 real, including every image and video |
 | `/beyond-the-work` | `src/pages/BeyondTheWorkPage.tsx` | `src/data/beyondTheWork.ts` | ✅ Real (text + all photos). The badminton write-up is deliberately general: no squad size, no OUA/Nationals placings. |
-| `/contact` | `src/pages/ContactPage.tsx` | inline in the page | ✅ Real (yanedward07@gmail.com + GitHub) |
+| `/contact` | `src/pages/ContactPage.tsx` | inline in the page | ✅ Real, titled "Let's Chat" (nav label too; the route stays `/contact`). Calendly 30-min booking link as the primary button, then yanedward07@gmail.com + GitHub |
 
 Skills no longer has its own route — it renders as a section at the bottom of `/about`.
 
@@ -56,4 +56,4 @@ Raw camera files (`.CR3`, `.CR2`, `.NEF`, `.ARW`) are gitignored — they can't 
 
 ## Content status
 
-Real content has been filled in for **Home, About, Timeline, Beyond the Work, and all 4 Projects**, media included (see the table above). **Skills (bottom of `/about`) still holds placeholder text** (a generic skill list) — that's next up. Contact is real; a LinkedIn link is the obvious thing still missing there. Content continues to be filled in **page by page**: for pages backed by a `src/data/*.ts` file, replace the placeholder array entries there; for Home/About/Contact, edit the copy directly in the page component.
+Real content has been filled in for **Home, About, Timeline, Beyond the Work, and all 4 Projects**, media included (see the table above). **Skills (bottom of `/about`) still holds placeholder text** (a generic skill list) — that's next up. Contact ("Let's Chat") is real; a LinkedIn link is the obvious thing still missing there. Content continues to be filled in **page by page**: for pages backed by a `src/data/*.ts` file, replace the placeholder array entries there; for Home/About/Contact, edit the copy directly in the page component.
