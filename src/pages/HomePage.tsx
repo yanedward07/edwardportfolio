@@ -106,7 +106,7 @@ export function HomePage() {
               transition={{ duration: 0.5 }}
               className="text-sm text-honey-600 dark:text-honey-400"
             >
-              AI Automation &amp; Growth Engineering
+              GTM Engineer &middot; AI Automation
             </motion.p>
             <HeroName />
             <motion.div

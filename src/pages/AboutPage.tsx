@@ -9,7 +9,7 @@ export function AboutPage() {
       <div className="space-y-6 text-lg leading-[1.75] text-bark-600 dark:text-bark-400">
         <p>
           I'm Edward Yan, currently studying a double degree in Civil Engineering and AI
-          Systems Engineering at Western University. Along the way, I saw how fast AI and
+          Systems Engineering at Western University in Canada. Along the way, I saw how fast AI and
           automation were reshaping how real businesses operate, and I wanted to be building
           with it, not just reading about it.
         </p>
@@ -33,17 +33,19 @@ export function AboutPage() {
           calling for reorder reminders and promotions.
         </p>
         <p>
-          Alongside that, I built the company's cold outbound infrastructure, including
-          domain setup and bulk email systems, automating roughly 90% of what sales reps
-          used to do by hand. I also ran growth-style campaigns using customer behavior and
-          seasonal timing to guide outreach, matching product positioning to what different
-          industries actually needed. When FIFA created a wave of demand around customizable
-          team gear, I helped build a Soccermania wristband line to meet it.
+          Alongside that, I built the company's entire cold outbound infrastructure from
+          the ground up, secondary sending domains, warmed-up inbox rotations through
+          Instantly, ZeroBounce verification for new lists, and tracked-link workflows that
+          automatically nudge engaged leads through the pipeline, automating roughly 90% of
+          what sales reps used to do by hand. I ran growth campaigns tied to real demand,
+          from a Soccermania wristband line during the World Cup to glow-in-the-dark UV
+          wristbands targeted at nightlife venues, sourcing the databases, building the
+          outreach, and adjusting based on what the engagement data showed.
         </p>
         <p>
           I've picked up most of this through hands-on execution and AI-assisted development
-          rather than formal training. I'm looking to keep building inside a team working on
-          real AI products, wherever that opportunity takes shape.
+          rather than formal training. I'm looking to bring that same builder-and-seller
+          approach to a team's go-to-market engine, wherever that opportunity takes shape.
         </p>
       </div>
 

@@ -44,17 +44,17 @@ export const timelineEntries: TimelineEntry[] = [
   {
     id: 'timeline-6',
     date: 'November 2025 – January 2026',
-    title: 'Cold Outbound with Instantly.ai',
+    title: 'Building the Outbound Engine',
     subtitle: 'MedTech Wristbands',
     description:
-      "Introduced Instantly.ai at MedTech Wristbands to reduce manual sales workload. Warmed up sales rep inboxes to maintain deliverability and avoid spam filters, then built and ran recapture campaigns targeting active and past customers, rotating rep inboxes and writing personalized reorder and promotional messages, managed through a unified inbox so reps could pick up replies and close directly. Used Instantly's SuperSearch to source new contacts across industries including fairs and festivals, theme parks, sports, food and beverage, K-12 schools, and hospitals, and ran cold outreach campaigns into these segments.",
+      'MedTech had spent 20 years with reps emailing customers one by one. I replaced that with a real outbound engine: secondary sending domains, warmed inbox rotation across the sales team, and verified contact lists, so thousands of reorder and recapture emails went out without hurting deliverability, and replies landed in one inbox for reps to close.',
   },
   {
     id: 'timeline-7',
     date: 'January 2026 – Present',
-    title: 'AI Systems & Growth',
+    title: 'GTM Engineering & AI Systems',
     subtitle: 'MedTech Wristbands',
     description:
-      "Built EVE, Jessica, and Luna, a full AI chat and voice system handling customer intake end to end. Built the company's cold outbound infrastructure and GHL workflows with conditional logic, engagement tracking, and automated pipeline movement. Ran growth campaigns including competitive pricing analysis, industry-tailored outreach, and a Soccermania wristband line for the World Cup.",
+      'Built a voice AI agent and a three-agent chat system (EVE, Jessica, and Luna) that capture inbound leads 24/7 and hand reps fully detailed orders. Ran go-to-market launches for new products, a Soccermania line for the World Cup and a first-to-market UV glow line for nightlife venues, with A/B tested outreach and automated nudge workflows for anyone who engaged. Also built a separate B2G outbound motion for Canadian municipalities under the Rizbands brand.',
   },
 ]

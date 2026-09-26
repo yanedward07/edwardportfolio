@@ -18,8 +18,8 @@ export const extracurriculars: ExtracurricularEntry[] = [
     title: 'Varsity Badminton',
     subtitle: 'Western University',
     description: [
-      "Competed on Western's varsity badminton team for two years, training and competing nationally against other Canadian universities.",
-      'Trained 4 days a week, 3 hours a session, while competing at the OUA and U Sports national level. Balancing varsity-level training with a full academic course load meant learning real time management and discipline under pressure, skills that carried directly into how I approach shipping real projects on tight timelines.',
+      "Competed on Western's varsity badminton team for two years, playing nationally against other Canadian universities.",
+      'Balancing varsity competition with a full academic course load meant learning real time management and discipline under pressure, skills that carried directly into how I approach shipping real projects on tight timelines.',
     ],
     photos: [
       { id: 'badminton-1', caption: 'OUA Championship', image: ouaChampionshipTeamPhoto },
