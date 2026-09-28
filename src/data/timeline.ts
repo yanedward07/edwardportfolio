@@ -7,54 +7,38 @@ export const timelineEntries: TimelineEntry[] = [
     title: 'Joined Starship Solutions',
     subtitle: 'MedTech Wristbands',
     description:
-      "Joined Starship Solutions, an internal AR, VR, and AI venture at MedTech Wristbands. Built the company's website on Webflow.",
+      "Joined MedTech Wristbands' internal AR, VR, and AI venture. Built the company's Webflow site and started working on immersive customer experiences.",
   },
   {
     id: 'timeline-2',
-    date: 'May – July 2025',
-    title: 'VR Experience Sourcing',
+    date: 'July – September 2025',
+    title: 'Built & Shipped WebAR Experiences',
     subtitle: 'Starship Solutions',
     description:
-      'Sourced immersive VR video experiences for wellness and anxiety-focused use cases. This direction was paused before shipping.',
+      "Led the creation of six live WebAR wristband activations using 8th Wall, despite having little prior coding experience. One of the projects was later featured on 8th Wall's official blog. When 8th Wall was discontinued, I shifted into MedTech's core sales and operations systems.",
   },
   {
     id: 'timeline-3',
-    date: 'July – September 2025',
-    title: 'AR Pivot',
-    subtitle: 'Starship Solutions',
+    date: 'September – October 2025',
+    title: 'Built FlexTask',
+    subtitle: 'Independent Project',
     description:
-      "Led the creation of six live AR wristband activations using 8th Wall, including Prize Drop, Solar System, Smash Burger, Cyber Halo, Pop Launch, and Rocket Intro, with little prior coding background. Nominated by 8th Wall to showcase their new AI asset tool, featured in their official blog.",
+      "Built a student marketplace using React, TypeScript, and Supabase while learning AI-assisted development hands-on. The product never launched because I couldn't solve the two-sided cold-start problem. It became my first real lesson that building the product and getting people to use it are two separate problems.",
   },
   {
     id: 'timeline-4',
-    date: 'September 2025',
-    title: 'AR Work Paused',
-    subtitle: 'Starship Solutions',
+    date: 'November 2025 – January 2026',
+    title: 'Built the Customer Reactivation Engine',
+    subtitle: 'MedTech Wristbands',
     description:
-      'Paused AR work when 8th Wall discontinued the tool being used, prompting a shift in direction.',
+      "MedTech had years of historical customer accounts but a five-person sales team couldn't manually work every reorder list. I built an automated recapture system using verified contact lists, warmed sending inboxes, inbox rotation, and automated follow-up. Customers showing reorder intent were handed back to the rep who owned the relationship. The system eventually surfaced roughly 400 positive reorder-intent opportunities across our recapture campaigns.",
   },
   {
     id: 'timeline-5',
-    date: 'September – October 2025',
-    title: 'FlexTask',
-    subtitle: 'Independent Project',
-    description:
-      'Began building FlexTask, a platform for students to take on local freelance work like snow shoveling and pet sitting. First experience with AI-assisted ("vibe") coding. Learned role-based access control, row-level security, Supabase, and website hosting through hands-on trial and error. Never launched: I could not solve the cold start of getting both sides of a marketplace onto one campus at the same time.',
-  },
-  {
-    id: 'timeline-6',
-    date: 'November 2025 – January 2026',
-    title: 'Building the Outbound Engine',
-    subtitle: 'MedTech Wristbands',
-    description:
-      'MedTech had spent 20 years with reps emailing customers one by one. I replaced that with a real outbound engine: secondary sending domains, warmed inbox rotation across the sales team, and verified contact lists, so thousands of reorder and recapture emails went out without hurting deliverability, and replies landed in one inbox for reps to close.',
-  },
-  {
-    id: 'timeline-7',
     date: 'January 2026 – Present',
     title: 'GTM Engineering & AI Systems',
     subtitle: 'MedTech Wristbands',
     description:
-      'Built a voice AI agent and a three-agent chat system (EVE, Jessica, and Luna) that capture inbound leads 24/7 and hand reps fully detailed orders. Ran go-to-market launches for new products, a Soccermania line for the World Cup and a first-to-market UV glow line for nightlife venues, with A/B tested outreach and automated nudge workflows for anyone who engaged. Also built a separate B2G outbound motion for Canadian municipalities under the Rizbands brand.',
+      'Expanded from outbound into the broader customer journey. I built a Voice AI receptionist and multi-agent website system that handle inbound conversations, collect order information, classify intent, and route customers into the right workflow or sales rep. Alongside the AI systems, I continued running outbound, customer reactivation, product-launch, and market-specific campaigns while building CRM workflows around follow-up and sales handoff. This is where I realized the common thread across my work was GTM engineering: building the systems that connect a product to its customers.',
   },
 ]

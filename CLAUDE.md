@@ -35,7 +35,7 @@ Personal portfolio/resume site.
 |---|---|---|---|
 | `/` | `src/pages/HomePage.tsx` | inline (portrait, tagline, bio, the `PASTIMES` array, the "Looking for my next team" blurb) | ✅ Real — bio/tagline reused from the old Hero; the intro paragraph, the three pastime blurbs (racket sports, billiards, golf), and the availability blurb are new copy written for this site |
 | `/about` | `src/pages/AboutPage.tsx` | inline (bio) + `src/data/skills.ts` | ✅ Real — GTM-engineering bio (8 paragraphs) and the Skills block (6 groups, from Outbound & GTM to Technical Familiarity) |
-| `/timeline` | `src/pages/TimelinePage.tsx` | `src/data/timeline.ts` | ✅ Real (7 entries, May 2025 – Present) |
+| `/timeline` | `src/pages/TimelinePage.tsx` | `src/data/timeline.ts` | ✅ Real (5 entries, May 2025 – Present: Starship, WebAR, FlexTask, Customer Reactivation Engine, GTM Engineering & AI Systems) |
 | `/projects` + `/projects/:projectId` | `src/pages/ProjectsPage.tsx`, `src/pages/ProjectDetailPage.tsx` | `src/data/projects.ts` | ✅ All 4 real, including every image and video |
 | `/beyond-the-work` | `src/pages/BeyondTheWorkPage.tsx` | `src/data/beyondTheWork.ts` | ✅ Real (text + all photos). The badminton write-up is deliberately general: no squad size, no OUA/Nationals placings. |
 | `/contact` | `src/pages/ContactPage.tsx` | inline in the page | ✅ Real, titled "Let's Chat" (nav label too; the route stays `/contact`). Calendly 30-min booking link as the primary button, then yanedward07@gmail.com + GitHub |
