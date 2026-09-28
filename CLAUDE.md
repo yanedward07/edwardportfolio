@@ -34,7 +34,7 @@ Personal portfolio/resume site.
 | Route | Page component | Content lives in | Status |
 |---|---|---|---|
 | `/` | `src/pages/HomePage.tsx` | inline (portrait, tagline, bio, the `PASTIMES` array, the "Looking for my next team" blurb) | ✅ Real — bio/tagline reused from the old Hero; the intro paragraph, the three pastime blurbs (racket sports, billiards, golf), and the availability blurb are new copy written for this site |
-| `/about` | `src/pages/AboutPage.tsx` | inline (bio) + `src/data/skills.ts` | 🟡 Bio real; the Skills block at the bottom is still placeholder |
+| `/about` | `src/pages/AboutPage.tsx` | inline (bio) + `src/data/skills.ts` | ✅ Real — GTM-engineering bio (8 paragraphs) and the Skills block (6 groups, from Outbound & GTM to Technical Familiarity) |
 | `/timeline` | `src/pages/TimelinePage.tsx` | `src/data/timeline.ts` | ✅ Real (7 entries, May 2025 – Present) |
 | `/projects` + `/projects/:projectId` | `src/pages/ProjectsPage.tsx`, `src/pages/ProjectDetailPage.tsx` | `src/data/projects.ts` | ✅ All 4 real, including every image and video |
 | `/beyond-the-work` | `src/pages/BeyondTheWorkPage.tsx` | `src/data/beyondTheWork.ts` | ✅ Real (text + all photos). The badminton write-up is deliberately general: no squad size, no OUA/Nationals placings. |
@@ -56,4 +56,4 @@ Raw camera files (`.CR3`, `.CR2`, `.NEF`, `.ARW`) are gitignored — they can't 
 
 ## Content status
 
-Real content has been filled in for **Home, About, Timeline, Beyond the Work, and all 4 Projects**, media included (see the table above). **Skills (bottom of `/about`) still holds placeholder text** (a generic skill list) — that's next up. Contact ("Let's Chat") is real; a LinkedIn link is the obvious thing still missing there. Content continues to be filled in **page by page**: for pages backed by a `src/data/*.ts` file, replace the placeholder array entries there; for Home/About/Contact, edit the copy directly in the page component.
+Real content has been filled in for **every page, including Skills at the bottom of `/about`**, media included (see the table above). Contact ("Let's Chat") is real; a LinkedIn link is the obvious thing still missing there. Content continues to be filled in **page by page**: for pages backed by a `src/data/*.ts` file, replace the placeholder array entries there; for Home/About/Contact, edit the copy directly in the page component.

@@ -106,7 +106,7 @@ export function HomePage() {
               transition={{ duration: 0.5 }}
               className="text-sm text-honey-600 dark:text-honey-400"
             >
-              GTM Engineer &middot; AI Automation
+              GTM Engineer &middot; Outbound Systems &middot; AI Automation
             </motion.p>
             <HeroName />
             <motion.div
@@ -116,9 +116,13 @@ export function HomePage() {
               className="mt-7 max-w-[58ch] space-y-4 text-lg leading-relaxed text-bark-600 dark:text-bark-400"
             >
               <p>
-                I love building things that make people's lives easier. Chat and voice
-                agents, workflow automation, outbound systems, anything that takes the
-                repetitive half of a job off someone's plate.
+                I build the systems that help companies find customers, qualify intent,
+                and turn interest into sales.
+              </p>
+              <p>
+                Outbound, CRM automation, AI agents, and sales workflows designed to
+                reduce repetitive work and help teams focus on the opportunities that
+                matter.
               </p>
               <p>
                 If a person is doing it fifty times a week, I'd rather build something
@@ -152,9 +156,10 @@ export function HomePage() {
             Looking for my next team
           </h2>
           <p className="mt-4 max-w-[64ch] leading-relaxed text-bark-600 dark:text-bark-400">
-            I'm open to startup roles and full-time work where I can keep shipping AI
-            products end to end. The kind of place where the person who designs the
-            system is also the one who gets it live.
+            I'm looking to join an early-stage team where I can build and operate the
+            systems around go-to-market, from outbound and CRM automation to AI-powered
+            qualification and sales workflows. I'm a US citizen and open to relocating
+            to the US.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <Link

@@ -8,44 +8,52 @@ export function AboutPage() {
 
       <div className="space-y-6 text-lg leading-[1.75] text-bark-600 dark:text-bark-400">
         <p>
-          I'm Edward Yan, currently studying a double degree in Civil Engineering and AI
-          Systems Engineering at Western University in Canada. Along the way, I saw how fast AI and
-          automation were reshaping how real businesses operate, and I wanted to be building
-          with it, not just reading about it.
+          I'm Edward Yan, an engineering student at Western University who ended
+          up becoming much more interested in the problem that happens after
+          something gets built: how do you actually get it into customers' hands?
         </p>
         <p>
-          That pull led me to Starship Solutions, an internal AR, VR, and AI venture at
-          MedTech Wristbands, where I built the company's website on Webflow and led the
-          creation of six live AR experiences using 8th Wall with little prior coding
-          background. My AR work was recognized directly by the platform itself, featured in
-          8th Wall's official blog.
+          I started at Starship Solutions, MedTech Wristbands' internal AR, VR,
+          and AI venture, where I built the company's Webflow site and led six
+          live WebAR activations using 8th Wall. One of those projects was later
+          featured by 8th Wall on its official blog.
         </p>
         <p>
-          When the underlying AR tool I was using got discontinued, I moved into MedTech
-          Wristbands' core operations. There, I built a full AI customer intake system. On
-          the chat side, EVE acts as the receptionist, handling FAQs, customer service, and
-          bookings, then hands off to one of two specialized agents: Jessica, a flow-based
-          bot for straightforward stock wristband orders, or Luna, who guides customers
-          through custom designs and can even interpret uploaded images to help guide the
-          process. On the phone side, a voice version of EVE handles everything from
-          reception to order intake to transferring calls to the right department. We're now
-          collecting consent to build a large enough customer database to launch outbound AI
-          calling for reorder reminders and promotions.
+          When 8th Wall was discontinued, I moved into MedTech Wristbands' core
+          business and started building systems around its sales process.
         </p>
         <p>
-          Alongside that, I built the company's entire cold outbound infrastructure from
-          the ground up, secondary sending domains, warmed-up inbox rotations through
-          Instantly, ZeroBounce verification for new lists, and tracked-link workflows that
-          automatically nudge engaged leads through the pipeline, automating roughly 90% of
-          what sales reps used to do by hand. I ran growth campaigns tied to real demand,
-          from a Soccermania wristband line during the World Cup to glow-in-the-dark UV
-          wristbands targeted at nightlife venues, sourcing the databases, building the
-          outreach, and adjusting based on what the engagement data showed.
+          On the outbound side, I built and operated customer reactivation and
+          cold outreach systems using Instantly, GoHighLevel, ZeroBounce, CRM
+          workflows, and multiple sending inboxes. Historical customers could be
+          contacted automatically, followed up with, and surfaced to their account
+          rep once they showed real reorder intent. I also ran targeted campaigns
+          for new products and markets, from World Cup wristbands for
+          sports-related buyers to current outreach targeting Canadian municipalities.
         </p>
         <p>
-          I've picked up most of this through hands-on execution and AI-assisted development
-          rather than formal training. I'm looking to bring that same builder-and-seller
-          approach to a team's go-to-market engine, wherever that opportunity takes shape.
+          On the inbound side, I built AI systems for both phone and web. EVE
+          handles inbound calls 24/7, identifies why someone is calling, collects
+          information, and routes the request into the right workflow or sales
+          rep. On the website, EVE, Jessica, and Luna handle FAQs, stock orders,
+          and custom-order qualification across MedTech's Canadian and US brands.
+        </p>
+        <p>
+          What I've become interested in is the system connecting all of this
+          together: finding the right customer, reaching them with the right
+          message, recognizing intent, moving that information through the CRM,
+          and bringing a salesperson in when human judgment or relationships
+          matter.
+        </p>
+        <p>
+          That's why I now think of my work as GTM engineering. I use automation,
+          AI, data, and sales tooling to build the infrastructure around how a
+          company gets and handles customers.
+        </p>
+        <p>
+          I'm looking to bring that builder-and-operator approach to an
+          early-stage US startup, where I can work close to the founders, understand the
+          GTM bottleneck, and help build the system around it.
         </p>
       </div>
 
@@ -56,7 +64,7 @@ export function AboutPage() {
         <div className="mt-10 space-y-8">
           {skillGroups.map((group) => (
             <div key={group.id} className="sm:flex sm:gap-8">
-              <h3 className="w-36 shrink-0 font-display text-lg font-semibold text-honey-600 dark:text-honey-400">
+              <h3 className="w-48 shrink-0 font-display text-lg font-semibold text-honey-600 dark:text-honey-400">
                 {group.category}
               </h3>
               <ul className="mt-3 flex flex-wrap gap-2 sm:mt-1">
