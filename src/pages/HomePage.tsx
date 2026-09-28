@@ -158,8 +158,10 @@ export function HomePage() {
           <p className="mt-4 max-w-[64ch] leading-relaxed text-bark-600 dark:text-bark-400">
             I'm looking to join an early-stage team where I can build and operate the
             systems around go-to-market, from outbound and CRM automation to AI-powered
-            qualification and sales workflows. I'm a US citizen and open to relocating
-            to the US.
+            qualification and sales workflows.
+          </p>
+          <p className="mt-3 text-xs tracking-wide text-bark-500">
+            US citizen &middot; Open to US-based roles and relocation
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <Link
