@@ -9,7 +9,7 @@ export function ProjectsPage() {
       <div className="mx-auto max-w-5xl px-6">
         <PageHeader
           title="Projects"
-          lede="Four systems I designed and shipped. Open one for the full write-up, the walkthrough videos, and the links."
+          lede="Selected systems I've built across outbound, customer reactivation, AI qualification, and automation. Each case study covers the problem, how I approached it, and what I learned shipping it in the real world."
         />
 
         <div className="grid gap-6 sm:grid-cols-2">

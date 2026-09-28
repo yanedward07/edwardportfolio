@@ -66,23 +66,64 @@ export function ProjectDetailPage() {
         </div>
       )}
 
-      {project.highlight && (
-        <p className="mt-12 rounded-r-xl border-l-2 border-honey-500 bg-honey-500/8 py-5 pl-6 pr-5 leading-relaxed text-espresso-800 dark:border-honey-400 dark:bg-honey-400/8 dark:text-oat-200">
-          {project.highlight}
-        </p>
+      {project.problem && (
+        <div className="mt-12 rounded-r-xl border-l-2 border-honey-500 bg-honey-500/8 py-5 pl-6 pr-5 dark:border-honey-400 dark:bg-honey-400/8">
+          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-honey-600 dark:text-honey-400">
+            The problem
+          </p>
+          <p className="mt-2 leading-relaxed text-espresso-800 dark:text-oat-200">
+            {project.problem}
+          </p>
+        </div>
       )}
 
-      {project.descriptionHeading && (
-        <h2 className="mt-12 font-display text-2xl font-semibold tracking-tight text-espresso-900 dark:text-oat-50">
-          {project.descriptionHeading}
-        </h2>
+      {project.built && (
+        <CaseSection title="What I built">
+          <p>{project.built}</p>
+        </CaseSection>
       )}
 
-      <div className="mt-6 space-y-5 leading-[1.75] text-bark-600 dark:text-bark-400">
-        {project.description.map((paragraph, index) => (
-          <p key={index}>{paragraph}</p>
-        ))}
-      </div>
+      {project.howItWorks && project.howItWorks.length > 0 && (
+        <CaseSection title="How it works">
+          <dl className="space-y-6">
+            {project.howItWorks.map((step) => (
+              <div key={step.label}>
+                <dt className="font-medium text-espresso-900 dark:text-oat-100">
+                  {step.label}
+                </dt>
+                <dd className="mt-1">
+                  {step.text}
+                  {step.points && (
+                    <ul className="mt-3 space-y-3">
+                      {step.points.map((point) => (
+                        <li key={point} className="relative pl-5">
+                          <span
+                            aria-hidden="true"
+                            className="absolute left-0 top-[0.7em] h-1.5 w-1.5 rounded-full bg-honey-500 dark:bg-honey-400"
+                          />
+                          {point}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </CaseSection>
+      )}
+
+      {project.outcome && (
+        <CaseSection title="Outcome">
+          <p>{project.outcome}</p>
+        </CaseSection>
+      )}
+
+      {project.learned && (
+        <CaseSection title="What I learned">
+          <p>{project.learned}</p>
+        </CaseSection>
+      )}
 
       {project.images && project.images.length > 0 && (
         // A lone screenshot reads better full width than stranded in one
@@ -174,6 +215,14 @@ export function ProjectDetailPage() {
         </div>
       )}
 
+      {project.details && project.details.length > 0 && (
+        <CaseSection title="Technical details">
+          {project.details.map((paragraph, index) => (
+            <p key={index}>{paragraph}</p>
+          ))}
+        </CaseSection>
+      )}
+
       <div className="mt-16 border-t border-espresso-900/10 pt-8 dark:border-oat-100/10">
         <Link
           to="/projects"
@@ -183,6 +232,19 @@ export function ProjectDetailPage() {
         </Link>
       </div>
     </PageShell>
+  )
+}
+
+function CaseSection({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <section className="mt-12">
+      <h2 className="font-display text-2xl font-semibold tracking-tight text-espresso-900 dark:text-oat-50">
+        {title}
+      </h2>
+      <div className="mt-4 space-y-5 leading-[1.75] text-bark-600 dark:text-bark-400">
+        {children}
+      </div>
+    </section>
   )
 }
 

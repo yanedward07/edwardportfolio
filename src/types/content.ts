@@ -50,17 +50,33 @@ export interface ProjectImage {
   summary?: string
 }
 
+/** One labelled part of a case study's "How it works" breakdown. */
+export interface ProjectStep {
+  label: string
+  text: string
+  /** Optional bullet list under the text, e.g. one line per campaign. */
+  points?: string[]
+}
+
+/**
+ * A project is written up as a case study: Problem, What I built, How it
+ * works, Outcome, What I learned, then the long-form technical detail. Every
+ * section is optional so a project only shows the headings it actually has.
+ */
 export interface Project {
   id: string
   title: string
   summary: string
   /** Card colour on the projects grid (see src/lib/accents.ts). Defaults to honey. */
   accent?: AccentKey
-  /** Optional short callout rendered distinctly above the description (e.g. a "why it matters" blurb). */
-  highlight?: string
-  /** Optional subheading rendered above the description paragraphs (e.g. "How it works"). */
-  descriptionHeading?: string
-  description: string[]
+  /** Rendered first, as the tinted "The problem" callout. */
+  problem?: string
+  built?: string
+  howItWorks?: ProjectStep[]
+  outcome?: string
+  learned?: string
+  /** Long-form detail under "Technical details", for readers who want to dig in. */
+  details?: string[]
   tags: string[]
   images?: ProjectImage[]
   videos?: ProjectVideo[]
